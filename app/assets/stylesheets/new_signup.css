@@ -24,13 +24,14 @@ body {
   float: none !important;
 }
 
-.sign_up {
+.login {
   text-align: center;
   display: block;
 }
 
-.alert {
-  text-align: center;
+#error_explanation {
+  color: #2199e8;
   display: block;
-  color: #2199e8  
+  font-size: 15px;
+  text-align: center;
 }

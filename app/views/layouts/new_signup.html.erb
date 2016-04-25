@@ -7,7 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Slackit" %></title>
 
     <%= stylesheet_link_tag "application" %>
-    <%= stylesheet_link_tag "new_session" %>
+    <%= stylesheet_link_tag "new_signup" %>
     <link href='https://fonts.googleapis.com/css?family=Comfortaa:700' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -27,3 +27,4 @@
     <p class="alert"><%= alert %></p>
   </body>
 </html>
+
