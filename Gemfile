@@ -39,6 +39,9 @@ gem 'devise'
 # For setting variables in different environments, maybe when using AWS?
 # gem 'figaro'
 
+gem 'foundation-rails'
+gem "font-awesome-rails"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -54,5 +57,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'quiet_assets'
+
+  # Used to track N+1 queries and unused eager loading
+  gem 'bullet'
 end
 
