@@ -1,0 +1,30 @@
+REALTIME
+
+https://fanout.io/
+http://blog.pusher.com/making-reactjs-realtime-with-websockets/
+
+
+REDDIT STREAM
+
+https://www.npmjs.com/package/reddit-stream
+https://github.com/reddit/reddit/wiki
+https://www.google.com/search?client=ubuntu&channel=fs&q=reddit+api+wrapper&ie=utf-8&oe=utf-8
+https://github.com/reddit/reddit/wiki/API-Wrappers
+https://www.reddit.com/dev/api#section_links_and_comments
+https://www.reddit.com/r/nba/comments/4fwwoc/post_game_thread_the_houston_rockets_12_defeat/.json
+https://github.com/reddit/reddit/wiki/OAuth2
+
+
+PROJECT REFERENCES
+https://github.com/winniengo/CribMapper/tree/master/config
+https://github.com/ScottKwang/CodePal
+https://github.com/RyserGuyser/PickUp
+https://github.com/hankfanchiu/chime
+https://github.com/tleewu/goworkspace
+https://github.com/apopma/stronghold
+SLACK CLONE HERE --> https://github.com/powersjcb/slick
+SLACK CLONE HERE --> https://github.com/ericfirth/quack-app
+https://github.com/adamberman/TVBnB
+
+
+
