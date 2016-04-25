@@ -1,0 +1,30 @@
+body {
+  background: #E6E6DC;
+}
+
+.login-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  margin: 100px 0;
+  padding: 40px 20px 0px 20px;
+}
+
+.expand{
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  color: #2199e8;
+  font-family: 'Comfortaa', cursive;
+}
+
+/*needed to use important because base css foundation kept floating the large 3 container right*/
+.large-3 {
+  float: none !important;
+}
+
+.sign_up {
+  text-align: center;
+  display: block;
+}

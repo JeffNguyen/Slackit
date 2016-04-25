@@ -15,5 +15,6 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= stub new_session
 
 $(function(){ $(document).foundation(); });
