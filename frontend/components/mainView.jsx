@@ -32,6 +32,7 @@ var MainView = React.createClass({
     this.chatRoom.bind('new_message', function(data){
       this.setState({messages: this.state.messages.concat(data.message)});
     }, this);
+    console.log(this.state.messages);
   },
 
   _onMessage: function(e){
@@ -45,7 +46,6 @@ var MainView = React.createClass({
     if (text === "") return;
 
     var message = {
-      username: this.props.username,
       text: text,
     };
 
@@ -64,9 +64,9 @@ var MainView = React.createClass({
   },
 
   render: function() {
-    if (!this.props.username) var style = {display:'none'};
+    // if (!this.props.username) var style = {display:'none'};
     return (
-      <div style={style}>
+      <div>
         <MessageList messages={this.state.messages}  />
         <input placeholder="Type your message" onKeyPress={this._onMessage} />
       </div>

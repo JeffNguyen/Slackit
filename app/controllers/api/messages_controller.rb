@@ -2,11 +2,14 @@ class Api::MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    # building add ons to the message, could extract this to jbuilder later
+    @message.username = current_user.email
     @message.user_id = current_user.id
     
     if @message.save
       Pusher.trigger('messages', 'new_message', {
-        message: params[:message]
+        # need id to pass in for unique key in react
+        message: {id: @message.id, username: current_user.email, text: params[:message][:text], user_messages: current_user.messages}
       })    
       render json: @message
     else
