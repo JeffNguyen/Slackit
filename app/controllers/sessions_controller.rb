@@ -1,3 +1,4 @@
 class SessionsController < Devise::SessionsController
-  layout 'new_session', only: [:new, :create]
+  # don't need because named different classes to avoid layout duplication
+  # layout 'new_session', only: [:new, :create]
 end

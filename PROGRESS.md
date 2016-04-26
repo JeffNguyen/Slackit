@@ -11,3 +11,10 @@ Progress
 PROBLEM - when the asset pipeline bundles, for some reason - going from page to page which utilizes the same class (and potentially different stylings) doesn't reset. When I go from sessions to registrations - the style in sessions of the login box overwrites and doesn't change within the registrations. It might be the way rails deals with bundling.
 
 POTENTIAL SOLUTION - I could maybe name the classes differently so there is no namespace collision, but that would ruin the whole point of CSS.
+
+SOLUTION TO CSS - Don't trying breaking up the asset pipeline, don't worry about if css files get bundled together and can't figure out namespacing where a class should apply to two different pages with different styles. Just slightly alter the classes, get the style to work, and move on.
+
+Use Jbuilder because instead of just always rendering the whole json of the object created in a specific
+controllre, you can control what gets sent down the pipeline. For example, maybe u want to send more information associated with a message - u can build that up in jbuilder and send it to the client side for immediate use.
+
+Built a functional webchat app using this guide https://blog.pusher.com/making-reactjs-realtime-with-websockets/ it needed a bit of tweaking but they have a great example here https://github.com/pusher-community/react-realtime-chat

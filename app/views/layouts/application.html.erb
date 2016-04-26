@@ -9,7 +9,9 @@
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    
+    <script src="//fb.me/react-0.13.3.js"></script>
+    <script src="//fb.me/JSXTransformer-0.13.3.js"></script>
+    <script src="//js.pusher.com/3.0/pusher.min.js"></script>
   </head>
 
   <body>
@@ -22,7 +24,7 @@
       <%#=- link_to "Sign up", new_user_registration_path %> |
       <%#=- link_to "Log in", new_user_session_path %>
     <% end %>
-    <p class="notice"><%= notice %></p>
+    <!--p class="notice"--><%#= notice %><!--/p-->
     <p class="alert"><%= alert %></p>
   </body>
 </html>

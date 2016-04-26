@@ -5,9 +5,10 @@ var Route = require('react-router').Route;
 var HashHistory = require('react-router').hashHistory;
 
 var App = require('./components/app.jsx');
+var Chat = require('./components/chat.jsx');
 
 var routes = (
-	<Route path='/' component={App}>
+	<Route path='/' component={Chat}>
 	</Route>
 );
 

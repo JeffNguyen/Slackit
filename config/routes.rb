@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users,
              :controllers => {:sessions => "sessions", :registrations => "registrations"},
              :skip => [:passwords]
+  namespace :api, defaults: {format: :json} do
+    resources :messages
+  end
 
   # for specifying exact routes within devise users
   # can't find controller if its nested inside devise folder
