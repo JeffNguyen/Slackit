@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- THIS IS FOR POTENTIAL CSRF WEIRDNESS when you have two instances of the same chat and there is a time out or some cache error that won't let you chat -->
+    <%#= csrf_meta_tags %>
 
     <title><%= content_for?(:title) ? yield(:title) : "Slackit" %></title>
 

@@ -78,5 +78,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # CHANGE HOST TO ACTUAL URL OF APPLICATION
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.serve_static_files = true
+
+  config.log_level = :debug
 end

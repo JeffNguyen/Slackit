@@ -25,12 +25,16 @@ MessageStore.all = function(){
   return messageArray.slice();
 };
 
+MessageStore.last = function(){
+  var all = this.all();
+  return all.pop();
+};
+
 var resetMessages = function(messages){
   _messages = [];
   messages.forEach(function(message){
     _messages.push(message);
   });
-  console.log(_messages.length);
 };
 
 var createMessage = function(message){

@@ -1,4 +1,10 @@
 class Api::MessagesController < ApplicationController
+  # weirdness with csrf and 2 sessions in same window and caching or something
+  # Can't verify CSRF token authenticity
+  # Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+  # ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+  # skip_before_action :verify_authenticity_token
 
   def index
     @messages = Message.all
