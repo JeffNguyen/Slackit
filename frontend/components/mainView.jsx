@@ -1,5 +1,7 @@
 var React = require('react');
 var MessageList = require('./messageList');
+var ClientActions = require('../actions/client_actions');
+var MessageStore = require('../stores/message_store');
 
 var MainView = React.createClass({
 
@@ -25,14 +27,20 @@ var MainView = React.createClass({
   // BINDING A CHANNEL ONCE MEANS THAT YOU WILL FOREVER LISTEN TO IT GLOBALLY AND ANY MESSAGE THAT COMES IN
   // WILL BE RENDER THRU SET STATE, NO NEED TO CALL chatroom BIND AGAIN otherwise duplicate renders and adds
   // to messages
+    this.messageListener = MessageStore.addListener(this._onChange);
+    ClientActions.fetchAllMessages();
+
+    // using refs to use "autofocus" feature because it is not supported in react through traditional html way
+    this.refs.messageInput.focus();
   },
 
   _onChange: function() {
     // DOESNT NEED TO BE CALLED SINCE chatRoom only needs initial bind
-    this.chatRoom.bind('new_message', function(data){
-      this.setState({messages: this.state.messages.concat(data.message)});
-    }, this);
-    console.log(this.state.messages);
+    // this.chatRoom.bind('new_message', function(data){
+    //   this.setState({messages: this.state.messages.concat(data.message)});
+    // }, this);
+    // console.log(this.state.messages);
+    this.setState({messages: MessageStore.all()});
   },
 
   _onMessage: function(e){
@@ -51,16 +59,18 @@ var MainView = React.createClass({
 
     var that = this;
 
-    $.ajax({
-      url: '/api/messages',
-      method: "POST",
-      data: {message: message},
-      success: function (data) {
-        console.log("SUCCESSFULLY CREATED");
-        console.log(data);
-        input.value = "";
-      }
-    });
+    // $.ajax({
+    //   url: '/api/messages',
+    //   method: "POST",
+    //   data: {message: message},
+    //   success: function (data) {
+    //     console.log("SUCCESSFULLY CREATED");
+    //     console.log(data);
+    //     input.value = "";
+    //   }
+    // });
+    ClientActions.createMessage(message);
+    input.value = "";
   },
 
   render: function() {
@@ -68,7 +78,7 @@ var MainView = React.createClass({
     return (
       <div>
         <MessageList messages={this.state.messages}  />
-        <input placeholder="Type your message" onKeyPress={this._onMessage} />
+        <input placeholder="Type your message" onKeyPress={this._onMessage} ref="messageInput"/>
       </div>
     );
   }

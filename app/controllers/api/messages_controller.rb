@@ -1,5 +1,10 @@
 class Api::MessagesController < ApplicationController
 
+  def index
+    @messages = Message.all
+    render json: @messages
+  end
+
   def create
     @message = Message.new(message_params)
     # building add ons to the message, could extract this to jbuilder later

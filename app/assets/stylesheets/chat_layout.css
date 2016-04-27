@@ -1,0 +1,9 @@
+body {
+  padding: 10px;
+}
+.chat {
+  height: 150px;
+  overflow-y: scroll;
+  border: 1px solid;
+  margin: 25px 25px 25px 25px;
+}

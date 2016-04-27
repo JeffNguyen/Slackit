@@ -1,4 +1,4 @@
-var ServerActions = require('../actions/serverActions.js');
+var ServerActions = require('../actions/server_actions.js');
 
 module.exports = {
 // Example Function
@@ -14,4 +14,26 @@ module.exports = {
 // }
 // });
 // }
+  createMessage: function(data){
+    $.ajax({
+      url: '/api/messages',
+      method: "POST",
+      dataType: 'json',
+      data: {message: data},
+      success: function (message) {
+        ServerActions.receiveSingleMessage(message);
+      }
+    });
+  },
+
+  fetchAllMessages: function(data){
+    $.ajax({
+      url: '/api/messages',
+      method: "GET",
+      dataType: 'json',
+      success: function (messages) {
+        ServerActions.receiveMessages(messages);
+      }
+    });
+  }
 };

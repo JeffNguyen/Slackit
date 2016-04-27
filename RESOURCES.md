@@ -57,3 +57,6 @@ https://github.com/pusher-community/pusher-realtime-reddit-demo
 http://blog.pusher.com/pusher-realtime-reddit-api/?utm_source=reddit&utm_medium=submitted_post&utm_campaign=reddit_api_launch
 https://www.reddit.com/r/learnprogramming/comments/2dd0dk/we_buit_a_realtime_reddit_api_its_super_easy_to/
 https://www.reddit.com/r/html5/comments/2dd25e/if_you_like_reddit_then_youll_love_the_pusher/
+
+
+http://stackoverflow.com/questions/29286037/setting-html5-autofocus-attribute-with-css

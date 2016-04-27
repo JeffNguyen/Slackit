@@ -24,5 +24,6 @@ module Slackit
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.precompile += %w( new_session.js )
     config.assets.precompile += %w( new_signup.js )
+    config.assets.precompile += %w( chat_layout.js )
   end
 end

@@ -18,3 +18,5 @@ Use Jbuilder because instead of just always rendering the whole json of the obje
 controllre, you can control what gets sent down the pipeline. For example, maybe u want to send more information associated with a message - u can build that up in jbuilder and send it to the client side for immediate use.
 
 Built a functional webchat app using this guide https://blog.pusher.com/making-reactjs-realtime-with-websockets/ it needed a bit of tweaking but they have a great example here https://github.com/pusher-community/react-realtime-chat
+
+Built a web chat app for single instance in which the user is connected to the server - once its refreshed, all the messages are gone. Now expanding it to fit flux architecture.
