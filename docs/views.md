@@ -11,6 +11,5 @@
 
 [new-session]: ./wireframes/Sign_In.png
 [sign-up]: ./wireframes/Sign_Up.png
-[channels_setup]: ./wireframes/channel_find_create.png
-[chat_interface]: ./wireframes/chat_interface.png
+[chat_interface]: ./wireframes/Chat_Interface.png
 

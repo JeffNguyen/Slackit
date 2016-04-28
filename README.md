@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://www.slack-it.herokuapp.com
+[heroku]: slack-it.herokuapp.com
 
 ## Minimum Viable Product
 
