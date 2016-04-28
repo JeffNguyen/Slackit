@@ -33,7 +33,7 @@
 
 ### Channels
 
-- TBD
+- `GET /api/channels`
 
 ### Reddit
 

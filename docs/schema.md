@@ -4,7 +4,7 @@
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-title       | string    | not null
+name        | string    | not null
 message_id  | integer   | not null, foreign key (references messages), indexed
 
 ## messages
