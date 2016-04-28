@@ -3,7 +3,7 @@
 * `Chat`
   * `channelsIndex`
     * `channelIndexItem'
-  * `mainView`
+  * `messageView`
     * `messageList`
   * `streamIndex`
     * `streamIndexItem`

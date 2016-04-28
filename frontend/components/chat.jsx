@@ -1,6 +1,6 @@
 var React = require('react');
 var WelcomeView = require('./welcomeView');
-var MainView = require('./mainView');
+var MessageView = require('./messageView');
 
 var Chat = React.createClass({
 
@@ -25,7 +25,7 @@ var Chat = React.createClass({
   render: function() {
     return (
       <div>
-        <MainView />
+        <MessageView />
       </div>
     );
   }

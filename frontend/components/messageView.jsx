@@ -1,9 +1,10 @@
+/* globals Pusher */
 var React = require('react');
 var MessageList = require('./messageList');
 var ClientActions = require('../actions/client_actions');
 var MessageStore = require('../stores/message_store');
 
-var MainView = React.createClass({
+var MessageView = React.createClass({
 
   getInitialState: function() {
     return {
@@ -18,7 +19,7 @@ var MainView = React.createClass({
     // method of loading all past messages based on successful subscription to channel
     this.chatRoom.bind('pusher:subscription_succeeded', function(){
       console.log("SUBSCRIPTION WORKED");
-      this.messageListener = MessageStore.addListener(this._loadInitialMessages);
+      this.messageListener = MessageStore.addListener(this._messagesChanged);
       ClientActions.fetchAllMessages();
     }, this);
   },
@@ -26,20 +27,21 @@ var MainView = React.createClass({
   componentDidMount: function() {
     // this only needs to be called once, pusher will handle any new incoming messages through subscription
     this.chatRoom.bind('new_message', function(data){
-        this.setState({messages: this.state.messages.concat(data.message)});
+        // this.setState({messages: this.state.messages.concat(data.message)});
 
         // trying to solve antipattern of removing 
         // ClientActions.createMessage(data.message);
+        ClientActions.fetchAllMessages();
       }, this);
 
     // using refs to use "autofocus" feature because it is not supported in react through traditional html way
     this.refs.messageInput.focus();
   },
 
-  _loadInitialMessages: function() {
+  _messagesChanged: function() {
     // only happens once
     this.setState({messages: MessageStore.all()});
-    this.messageListener.remove();
+    // this.messageListener.remove();
   },
 
   _onMessage: function(e){
@@ -69,4 +71,4 @@ var MainView = React.createClass({
   }
 });
 
-module.exports = MainView;
+module.exports = MessageView;

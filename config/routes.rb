@@ -5,6 +5,7 @@ Rails.application.routes.draw do
              :skip => [:passwords]
   namespace :api, defaults: {format: :json} do
     resources :messages
+    resources :channels
   end
 
   # for specifying exact routes within devise users

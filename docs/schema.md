@@ -5,14 +5,13 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | string    | not null
-message_id  | integer   | not null, foreign key (references messages), indexed
 
 ## messages
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-channel_id  | integer   | not null
+channel_id  | integer   | not null, foreign key (references messages), indexed
 username    | string    | not null
 text        | string    | not null 
 

@@ -17,9 +17,9 @@ what you'll need to do.
 ### message API Request Actions
 
 * `fetchAllMessages`
-  0. invoked from `mainView.jsx` `componentWillMount`
+  0. invoked from `messageView.jsx` `componentWillMount`
   0. `GET /api/messages` is called.
-  0. `_loadInitialMessages` is set as the callback.
+  0. `_messagesChanged` is set as the callback.
 
 * `createMessage`
   0. invoked from new message input `onKeyPress`
