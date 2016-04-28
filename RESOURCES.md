@@ -16,16 +16,8 @@ https://github.com/reddit/reddit/wiki/OAuth2
 
 
 PROJECT REFERENCES
-https://github.com/winniengo/CribMapper/tree/master/config
-https://github.com/ScottKwang/CodePal
-https://github.com/RyserGuyser/PickUp
-https://github.com/hankfanchiu/chime
-https://github.com/tleewu/goworkspace
-https://github.com/apopma/stronghold
 SLACK CLONE HERE --> https://github.com/powersjcb/slick
 SLACK CLONE HERE --> https://github.com/ericfirth/quack-app
-https://github.com/adamberman/TVBnB
-
 
 NOTES --
 

@@ -1,7 +1,9 @@
 ## Component Hierarchy
 
-* `App`
+* `Chat`
   * `channelsIndex`
-    * `channelForm`
-    * `channelIndexItem`
-    * 'MessageForm'
+    * `channelIndexItem'
+  * 'mainView'
+    * `messageList`
+  * `streamIndex`
+    * `streamIndexItem`

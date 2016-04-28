@@ -6,14 +6,11 @@
 ## Sign Up
 ![sign-up]
 
-## Channel Setup
-![channels_setup]
+## Chat Interface
+![chat_interface]
 
-## Channel Show
-![channel_show]
-
-[new-session]: ./wireframes/login.png
-[sign-up]: ./wireframes/signup.png
+[new-session]: ./wireframes/Sign_In.png
+[sign-up]: ./wireframes/Sign_Up.png
 [channels_setup]: ./wireframes/channel_find_create.png
-[channel_show]: ./wireframes/channel_show.png
+[chat_interface]: ./wireframes/chat_interface.png
 

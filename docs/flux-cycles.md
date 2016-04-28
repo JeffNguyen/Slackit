@@ -12,57 +12,31 @@ because once you start implementing your flux loops, that's precisely
 what you'll need to do.
 
 
-## channel Cycles
+## message Cycles
 
-### channels API Request Actions
+### message API Request Actions
 
-* `fetchAllchannels`
-  0. invoked from `channelsIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/channels` is called.
-  0. `receiveAllchannels` is set as the callback.
+* `fetchAllMessages`
+  0. invoked from `mainView.jsx` `componentWillMount`
+  0. `GET /api/messages` is called.
+  0. `_loadInitialMessages` is set as the callback.
 
-* `createchannel`
-  0. invoked from new channel button `onClick`
-  0. `POST /api/channels` is called.
-  0. `receiveSinglechannel` is set as the callback.
-
-* `fetchSinglechannel`
-  0. invoked from `channelDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/channels/:id` is called.
-  0. `receiveSinglechannel` is set as the callback.
-
-* `updatechannel`
-  0. invoked from `channelForm` `onSubmit`
-  0. `POST /api/channels` is called.
-  0. `receiveSinglechannel` is set as the callback.
-
-* `destroychannel`
-  0. invoked from delete channel button `onClick`
-  0. `DELETE /api/channels/:id` is called.
-  0. `removechannel` is set as the callback.
+* `createMessage`
+  0. invoked from new message input `onKeyPress`
+  0. `POST /api/messages` is called.
+  0. `_onMessage` is set as the callback.
 
 ### channels API Response Actions
 
-* `receiveAllchannels`
+* `receiveMessages`
   0. invoked from an API callback.
-  0. `channel` store updates `_channels` and emits change.
+  0. `channel` store resets and updates `_messages` and emits change.
 
-* `receiveSinglechannel`
+* `receiveSingleMessage`
   0. invoked from an API callback.
-  0. `channel` store updates `_channels[id]` and emits change.
-
-* `removechannel`
-  0. invoked from an API callback.
-  0. `channel` store removes `_channels[id]` and emits change.
-
-
-### message API Response Actions
-
-* `receiveAllmessages`
-  0. invoked from an API callback.
-  0. `message` store updates `_channels` and emits change.
+  0. `message` store updates `_messages` and emits change.
 
 ### Store Listeners
 
-* `channelsIndex` component listens to `channel` store.
+* `messageView.jsx` component listens to `message` store.
 

@@ -17,7 +17,7 @@ var MainView = React.createClass({
 
     // method of loading all past messages based on successful subscription to channel
     this.chatRoom.bind('pusher:subscription_succeeded', function(){
-      console.log("SUBSCRIPTION WORKE");
+      console.log("SUBSCRIPTION WORKED");
       this.messageListener = MessageStore.addListener(this._loadInitialMessages);
       ClientActions.fetchAllMessages();
     }, this);

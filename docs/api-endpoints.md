@@ -4,13 +4,18 @@
 
 ### Root
 
-- `GET /` - loads React web app
+#### Unauthenticated user
+- `GET /sessions#new` - loads Login template
+
+#### Authenticated user
+- `GET /static_pages#root` - loads React chat interface
 
 ### Users
 
-- `GET /users/new`
-- `POST /users`
-- `PATCH /users`
+- `GET /users/sign_in`
+- `POST /users/sign_in`
+- `DELETE /users/sign_out`
+- `GET /users/sign_up`
 
 ### Session
 
@@ -20,17 +25,12 @@
 
 ## JSON API
 
-### channels
-
-- `GET /api/channels`
-  - channels index/search
-  - accepts `tag_name` query param to list channels by tag
-  - accepts pagination params (if I get there)
-- `POST /api/channels`
-- `GET /api/channels/:id`
-- `PATCH /api/channels/:id`
-- `DELETE /api/channels/:id`
-
 ### Messages
 
 - `GET /api/messages`
+  - loads channel specific messages based on what channel the user clicks
+- `POST /api/messages``
+
+### Channels
+
+- TBD
