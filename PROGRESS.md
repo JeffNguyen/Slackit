@@ -20,3 +20,21 @@ controllre, you can control what gets sent down the pipeline. For example, maybe
 Built a functional webchat app using this guide https://blog.pusher.com/making-reactjs-realtime-with-websockets/ it needed a bit of tweaking but they have a great example here https://github.com/pusher-community/react-realtime-chat
 
 Built a web chat app for single instance in which the user is connected to the server - once its refreshed, all the messages are gone. Now expanding it to fit flux architecture.
+
+
+TODO: Ask about why refresh pushes the scroll a little down on the chat, fix flexbox weirdness where it collapses when we dont want it to
+
+IMPORTANT NOTE: Ruby/Rails executes on the server side, Javascript is on the client side so
+if I wanted to access Ruby/Rails methods (such as Devise current_user) the only way I can
+call it is through ajax requests to a controller which will handle the data, using document
+cookie or using hidden input tags. Using document cookie or hidden input will work but if for any
+reason you want a one page app in React - the cookie or tag will never change, so if you wanted
+response React front end auth, the tags/cookie wouldn't change - you'd have to do ajax request.
+However since I have auth all in my backend, when you login or sign up - that's it. All the 
+information I need for my session will be in the cookie/tag until I logout. 
+
+-- A BETTER WAY would be to include a script tag in the application layout - and inside the 
+script tag, use ruby interpolation te be able to use 'current_user' or any ruby methods, then
+append the information that was calculated to the window, so now when you run reactJS - you
+can reference the window as it has variables binded to it - so in this case current_user javascript
+variable with associated information

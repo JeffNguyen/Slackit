@@ -50,3 +50,9 @@
 //
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+@import 'new_session';
+@import 'new_signup';
+
+// I DONT HAVE TO INCLUDE INTERFACE BECAUSE IT DOESN'T CONFLICT WITH ANY FOUNDATION STYLING, so no overwriting occurs
+// MIGHT HAVE TO PRECOMPILE FOR PRODUCTION

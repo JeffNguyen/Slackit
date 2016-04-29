@@ -22,8 +22,9 @@ module Slackit
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.assets.precompile += %w( new_session.js )
-    config.assets.precompile += %w( new_signup.js )
-    config.assets.precompile += %w( chat_layout.js )
+    # config.assets.precompile += %w( new_session.js )
+    # config.assets.precompile += %w( new_signup.js )
+    # config.assets.precompile += %w( chat_layout.js )
+    # config.assets.precompile += %w( interface.js )
   end
 end

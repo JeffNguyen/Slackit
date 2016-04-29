@@ -75,6 +75,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] implement Channel component, will be alongside Chat component
   - [ ] `ChannelIndex`
   - [ ] `ChannelIndexItem`'
+  - [ ] Channel can either be a automatically subscribed channel, a private channel between users, and a private channel between 2 people (DM)
 
 ### Phase 4: Start Styling (0.5 days)
 
@@ -112,9 +113,3 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] More reddit integration
 - [ ] Infinite scrolling, pagination
 - [ ] User statistics/dashboard`
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md

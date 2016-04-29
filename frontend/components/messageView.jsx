@@ -22,6 +22,7 @@ var MessageView = React.createClass({
       this.messageListener = MessageStore.addListener(this._messagesChanged);
       ClientActions.fetchAllMessages();
     }, this);
+
   },
 
   componentDidMount: function() {
@@ -63,9 +64,9 @@ var MessageView = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <MessageList messages={this.state.messages}  />
-        <input placeholder="Type your message" onKeyPress={this._onMessage} ref="messageInput"/>
+      <div className='main'>
+        <MessageList messages={this.state.messages} /> 
+        <input placeholder="Type your message" onKeyPress={this._onMessage} ref="messageInput" className='input-message'/>
       </div>
     );
   }

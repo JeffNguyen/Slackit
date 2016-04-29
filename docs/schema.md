@@ -22,3 +22,10 @@ id                | integer   | not null, primary key
 email             | string    | not null, indexed, unique
 encrypted_password| string    | not null
 session_token     | string    | not null, indexed, unique
+
+## channel_users
+column name       | data type | details
+----------------  |-----------|-----------------------
+id                | integer   | not null, primary key
+channel_id        | string    | not null, indexed
+user_id           | integer    | not null, indexed

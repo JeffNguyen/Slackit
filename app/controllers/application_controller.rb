@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
     else
       cookies[:username] = current_user.email || 'guest'
+      cookies[:id] = current_user.id
     end
   end
 
