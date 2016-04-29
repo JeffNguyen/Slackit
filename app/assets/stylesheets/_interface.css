@@ -67,5 +67,9 @@ body {
   width: 100%;
 }
 
+.channel-selected {
+  background-color: orange;
+}
+
 /*ASIDE 1 AND 2 CHANGE DEPENDING ON WIDTH OF TEXT
 NEED TO HAVE FIXED SIZE*/

@@ -26,7 +26,6 @@ var MessageList = React.createClass({
       });
     }
 
-    console.log(list);
     return (
       <ul className="chat">
         {list}

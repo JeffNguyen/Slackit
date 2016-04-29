@@ -6,15 +6,16 @@ var ChannelView = React.createClass({
 
   getInitialState: function() {
     return {
-      channels: [] 
+      channels: ['GLOBAL', 'TECHNOLOGY', 'BASKETBALL', 'BASEBALL', 'POLITICS', 'MOVIES'] 
     };
   },
 
-  render: function() {
-    return (
-      <div className = 'aside aside-1'>
-        CHANNEL ITEMS GO HERE
+  render: function () {
+    return(
+      <div className='aside aside-1'>
+        <ChannelIndexItem channels={this.state.channels} />
       </div>
+
     );
   }
 });
