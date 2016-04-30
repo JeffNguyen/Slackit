@@ -1,4 +1,5 @@
-var ApiUtil = require('../utils/api_utils.js');
+var ApiUtil = require('../utils/api_utils');
+var ServerActions = require('./server_actions');
 
 var ClientActions = {
 // Example Function
@@ -9,8 +10,20 @@ var ClientActions = {
     ApiUtil.createMessage(message);
   },
 
-  fetchAllMessages: function(){
-    ApiUtil.fetchAllMessages();
+  fetchAllMessages: function(id){
+    ApiUtil.fetchAllMessages(id);
+  },
+
+  setChannel: function(channel){
+    ServerActions.setChannel(channel);
+  },
+  
+  createChannel: function(channel){
+    ApiUtil.createChannel(channel);
+  },
+
+  fetchAllChannels: function(){
+    ApiUtil.fetchAllChannels();
   }
 };
 

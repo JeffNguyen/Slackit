@@ -1,16 +1,8 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
-// Example Constants call
-// var PokemonConstants = require('../constants/pokemonConstants.js');
 var MessageConstants = require('../constants/message_constants');
+var ChannelConstants = require('../constants/channel_constants');
 
 var ServerActions = {
-// Example Function
-// receiveAllPokemons: function (pokemons) {
-// Dispatcher.dispatch({
-// actionType: PokemonConstants.POKEMONS_RECEIVED,
-// pokemons: pokemons
-// });
-// }
   receiveSingleMessage: function (message) {
     Dispatcher.dispatch({
       actionType: MessageConstants.SINGLE_MESSAGE_RECEIVED,
@@ -18,10 +10,32 @@ var ServerActions = {
     });
   },
 
-  receiveMessages: function (messages) {
+  receiveMessages: function (messages, id) {
     Dispatcher.dispatch({
       actionType: MessageConstants.MESSAGES_RECEIVED,
-      messages: messages
+      messages: messages,
+      id: id
+    });
+  },
+
+  setChannel: function (channel) {
+    Dispatcher.dispatch({
+      actionType: ChannelConstants.SET_CHANNEL_RECEIVED,
+      channel: channel
+    });
+  },
+
+  receiveChannel: function(channel) {
+    Dispatcher.dispatch({
+      actionType: ChannelConstants.SINGLE_CHANNEL_RECEIVED,
+      channel: channel
+    });
+  },
+
+  receiveChannels: function(channels) {
+    Dispatcher.dispatch({
+      actionType: ChannelConstants.CHANNELS_RECEIVED,
+      channels: channels
     });
   }
 };

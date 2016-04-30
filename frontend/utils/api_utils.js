@@ -26,15 +26,39 @@ module.exports = {
     });
   },
 
-  fetchAllMessages: function(data){
+  fetchAllMessages: function(id){
     $.ajax({
       url: '/api/messages',
       method: "GET",
       dataType: 'json',
       success: function (messages) {
-        ServerActions.receiveMessages(messages);
+        ServerActions.receiveMessages(messages, id);
       }
     });
   },
+
+  createChannel: function(data){
+    $.ajax({
+      url: 'api/channels',
+      method: 'POST',
+      dataType: 'json',
+      data: {channel: data},
+      success: function (channel){
+        console.log('made');
+        ServerActions.receiveChannel(channel)
+      }
+    })
+  },
+
+  fetchAllChannels: function(){
+    $.ajax({
+      url: '/api/channels',
+      method: "GET",
+      dataType: 'json',
+      success: function (channels) {
+        ServerActions.receiveChannels(channels);
+      }
+    });
+  }
 
 };

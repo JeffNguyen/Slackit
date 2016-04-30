@@ -11,7 +11,7 @@ MessageStore.__onDispatch = function(payload){
       createMessage(payload.message);
       break;
     case MessageConstants.MESSAGES_RECEIVED:
-      resetMessages(payload.messages);
+      resetMessages(payload.messages, payload.id);
       break;
   }
   this.__emitChange();
@@ -30,12 +30,25 @@ MessageStore.last = function(){
   return all.pop();
 };
 
-var resetMessages = function(messages){
+var resetMessages = function(messages, id){
+  console.log(messages);
+  console.log(id);
   _messages = [];
   messages.forEach(function(message){
-    _messages.push(message);
+    debugger
+    if (message.channel_id === id) {
+      _messages.push(message);
+    }
   });
+  console.log(_messages);
 };
+
+// var resetMessages = function(messages){
+//   _messages = [];
+//   messages.forEach(function(message){
+//     _messages.push(message);
+//   });
+// };
 
 var createMessage = function(message){
   _messages.push(message);

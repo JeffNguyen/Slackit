@@ -7,9 +7,7 @@ var MessageList = React.createClass({
   },
 
   render: function() {
-
     var list;
-
     // window.current_user information is all strings
     if (this.sign_in_count === '1') {
       list = 

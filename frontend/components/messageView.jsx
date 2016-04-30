@@ -2,13 +2,15 @@
 var React = require('react');
 var MessageList = require('./messageList');
 var ClientActions = require('../actions/client_actions');
+var ChannelStore = require('../stores/channel_store');
 var MessageStore = require('../stores/message_store');
 
 var MessageView = React.createClass({
 
   getInitialState: function() {
+    // used this.props.channelId which was passed down from the parent component which knows the url identifier of the channel
     return {
-      messages: [] 
+      messages: []
     };
   },
 
@@ -18,31 +20,29 @@ var MessageView = React.createClass({
 
     // method of loading all past messages based on successful subscription to channel
     this.chatRoom.bind('pusher:subscription_succeeded', function(){
-      console.log("SUBSCRIPTION WORKED");
       this.messageListener = MessageStore.addListener(this._messagesChanged);
-      ClientActions.fetchAllMessages();
+      ClientActions.fetchAllMessages(parseInt(this.props.channelId));
     }, this);
-
   },
 
   componentDidMount: function() {
-    // this only needs to be called once, pusher will handle any new incoming messages through subscription
     this.chatRoom.bind('new_message', function(data){
-        // this.setState({messages: this.state.messages.concat(data.message)});
-
-        // trying to solve antipattern of removing 
-        // ClientActions.createMessage(data.message);
-        ClientActions.fetchAllMessages();
-      }, this);
+      ClientActions.fetchAllMessages(parseInt(this.props.channelId));
+    }, this);
 
     // using refs to use "autofocus" feature because it is not supported in react through traditional html way
     this.refs.messageInput.focus();
+
+  },
+
+  componentWillReceiveProps: function() {
+    // to handle receiveing props through router
+    // ClientActions.fetchAllMessages(this.props.channelId);
   },
 
   _messagesChanged: function() {
-    // only happens once
     this.setState({messages: MessageStore.all()});
-    // this.messageListener.remove();
+
   },
 
   _onMessage: function(e){
@@ -50,12 +50,14 @@ var MessageView = React.createClass({
 
     var input = e.target;
     var text = input.value;
+    var channelId = ChannelStore.findSelected().id;
 
     // if the text is blank, do nothing
     if (text === "") return;
 
     var message = {
       text: text,
+      channel_id: parseInt(this.props.channelId)
     };
 
     ClientActions.createMessage(message);

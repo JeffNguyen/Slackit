@@ -1,39 +1,49 @@
 var React = require('react');
+var ClientActions = require('../actions/client_actions');
+var MessageStore = require('../stores/message_store');
+var ChannelStore = require('../stores/channel_store');
+var hashHistory = require('react-router').hashHistory;
 
 var ChannelIndexItem = React.createClass({
-  getInitialState: function(){
-    var channels = {}
-    this.props.channels.map(function(channel){
-      channels[channel] = 'channel-unselected';
-    });
-    return {
-      channels: channels
-    }
+  
+  getInitialState: function() {
+    return ({
+      selected: ''
+    })
   },
 
-  _clicked: function(e){
-    for (var key in this.state.channels){
-      this.state.channels[key] = 'channel-unselected';
-    }
-    this.state.channels[e.target.textContent] = 'channel-selected'
-    this.setState({channels: this.state.channels});
+  _setUrl: function(){
+    hashHistory.push('/' + this.props.channel.id);
+    // once I click a channel, I set the url which will re render this specific component
+    // but I need to also call fetch messages on the new channel id, this will activate
+    // the established listener in the messageView.jsx
+    // flux architecture
+    ClientActions.fetchAllMessages(this.props.channel.id);
+    // this.setState({selected: true});
   },
 
   render: function() {
-
-    var list = this.props.channels.map(function(channel, index){
-      return  (
-        <div>
-          <button key={index} className={this.state.channels[channel]} onClick={this._clicked}>
-            {channel}
-          </button><br/><br/>
-        </div>
-      );
-    }.bind(this));
-
+    // var selected;
+    // if (this.state.selected){
+    //   selected = 'channel-selected';
+    // }
+    // else {
+    //   selected = 'channel-unselected';
+    // }
+    
+    var identifier;
+    if (parseInt(this.props.channelId) === this.props.channel.id){
+      identifier = 'channel-selected';
+    } else {
+      identifier = 'channel-unselected';
+    }
     return (
       <div>
-        {list}
+        <br/>
+          <button className={identifier} onClick={this._setUrl}>
+            {this.props.channel.name}
+          </button>
+        <br/>
       </div>
     );
   }

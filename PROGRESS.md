@@ -38,3 +38,13 @@ script tag, use ruby interpolation te be able to use 'current_user' or any ruby 
 append the information that was calculated to the window, so now when you run reactJS - you
 can reference the window as it has variables binded to it - so in this case current_user javascript
 variable with associated information
+
+
+I created a channel store that held channel objects and a selected string - so it was an object that contained objects (channel obj, selected string)
+this made it incredibly tedious to navigate through to get selected and change it according to onclick, so I ended up just adding a selected column
+in my database so it could be apart of the channel object. much much easier
+
+React Router is really powerful with ReactJS. I was trying to pass around ids and data between my message_store, channel_store, messageView, and channelView to make sure they line up - so a specifical channel will trigger a specific message list to be shown. This involved a lot of code and passing around a lot of 
+information in the html and javascript. 
+
+Way to solve it was to actually set up react router - so since my page is a single chat interface - I rendered based on '/' or '/:id' and I passed that id (or a default one) as a prop to the children of my parent global component. Since the channelview and messageview are siblings, i simply passed the props.channelId to both of them, so they both have reference to the id in the 'url' - so they will always be on the same page. I just have to trigger the listener in messageView based on channel click so the messagelist will update.

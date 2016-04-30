@@ -4,6 +4,7 @@
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+selected    | string    | not null
 name        | string    | not null
 
 ## messages

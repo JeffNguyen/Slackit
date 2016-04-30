@@ -35,7 +35,7 @@ class Api::MessagesController < ApplicationController
     # typically speaking, the symbol in require is what is used in the views html erb
     # an example would be message[username], message[text] when filling out html
     # in ajax, need to pass in a objects hash with message pointing to contents username and text
-    params.require(:message).permit(:username, :text)
+    params.require(:message).permit(:username, :text, :channel_id)
   end
 
 end
