@@ -26,6 +26,7 @@ module.exports = {
     });
   },
 
+  // can change how messages gets returned in messageController index - we can filter using activerecord
   fetchAllMessages: function(id){
     $.ajax({
       url: '/api/messages',

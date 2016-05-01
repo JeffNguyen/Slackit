@@ -71,5 +71,9 @@ body {
   background-color: orange;
 }
 
+.stream-item {
+  width: 5%;
+}
+
 /*ASIDE 1 AND 2 CHANGE DEPENDING ON WIDTH OF TEXT
 NEED TO HAVE FIXED SIZE*/

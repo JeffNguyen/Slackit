@@ -1,6 +1,7 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
 var MessageConstants = require('../constants/message_constants');
 var ChannelConstants = require('../constants/channel_constants');
+var StreamConstants = require('../constants/stream_constants');
 
 var ServerActions = {
   receiveSingleMessage: function (message) {
@@ -37,6 +38,15 @@ var ServerActions = {
       actionType: ChannelConstants.CHANNELS_RECEIVED,
       channels: channels
     });
+  },
+
+  receiveSingleStream: function(stream) {
+    setTimeout(function(){
+      Dispatcher.dispatch({
+        actionType: StreamConstants.STREAM_RECEIVED,
+        stream: stream
+      })
+    }, 1);
   }
 };
 

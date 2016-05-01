@@ -2,10 +2,6 @@ var ApiUtil = require('../utils/api_utils');
 var ServerActions = require('./server_actions');
 
 var ClientActions = {
-// Example Function
-// fetchAllPokemons: function() {
-// ApiUtil.fetchAllPokemons();
-// };
   createMessage: function(message) {
     ApiUtil.createMessage(message);
   },
@@ -24,6 +20,10 @@ var ClientActions = {
 
   fetchAllChannels: function(){
     ApiUtil.fetchAllChannels();
+  },
+
+  fetchStream: function(stream) {
+    ServerActions.receiveSingleStream(stream);
   }
 };
 

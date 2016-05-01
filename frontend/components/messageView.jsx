@@ -42,7 +42,6 @@ var MessageView = React.createClass({
 
   _messagesChanged: function() {
     this.setState({messages: MessageStore.all()});
-
   },
 
   _onMessage: function(e){

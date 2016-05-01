@@ -4,6 +4,7 @@ var ClientActions = require('../actions/client_actions');
 var ChannelStore = require('../stores/channel_store');
 var MessageStore = require('../stores/message_store');
 var hashHistory = require('react-router').hashHistory;
+var CreateChannelItem = require('./createChannelItem');
 
 var ChannelView = React.createClass({
 
@@ -55,6 +56,7 @@ var ChannelView = React.createClass({
   render: function () {
     return(
       <div className='aside aside-1'>
+        <CreateChannelItem />
         {this.state.channels.map(function(channel, index){
           return (
             <ChannelIndexItem channel={channel} key={channel.id} channelId={this.props.channelId}/>

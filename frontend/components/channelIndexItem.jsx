@@ -19,6 +19,7 @@ var ChannelIndexItem = React.createClass({
     // the established listener in the messageView.jsx
     // flux architecture
     ClientActions.fetchAllMessages(this.props.channel.id);
+    ClientActions.fetchStream(this.props.channel.name.toLowerCase());
     // this.setState({selected: true});
   },
 

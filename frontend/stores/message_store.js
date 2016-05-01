@@ -31,16 +31,12 @@ MessageStore.last = function(){
 };
 
 var resetMessages = function(messages, id){
-  console.log(messages);
-  console.log(id);
   _messages = [];
   messages.forEach(function(message){
-    debugger
     if (message.channel_id === id) {
       _messages.push(message);
     }
   });
-  console.log(_messages);
 };
 
 // var resetMessages = function(messages){

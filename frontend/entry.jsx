@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Modal = require('react-modal');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
@@ -19,7 +20,6 @@ var App = React.createClass({
   componentWillMount: function() {
     // later can also check if the id paramter given is not in the list of channels allowed, redirect to default global
     if (this.props.params.id === undefined){
-      console.log('here');
       HashHistory.push('/' + '1');
       this.props.params.id = 1;
     }
@@ -61,6 +61,7 @@ var routes = (
 );
 
 document.addEventListener('DOMContentLoaded', function () {
+  Modal.setAppElement(document.getElementById('root'));
 	ReactDOM.render(
 		<Router history={HashHistory}>{routes}</Router>,
 		document.getElementById('root')

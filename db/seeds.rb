@@ -16,9 +16,9 @@ User.create!(email: 'user@email.com', password: 'password')
   User.create!(email: email, password: password)
 end
 
-Channel.create!(name: 'GLOBAL', selected: 'true');
-Channel.create!(name: 'BASKETBALL', selected: 'false');
-Channel.create!(name: 'BASEBALL', selected: 'false');
+Channel.create!(name: 'ALL', selected: 'true');
+Channel.create!(name: 'NBA', selected: 'false');
+Channel.create!(name: 'MLB', selected: 'false');
 Channel.create!(name: 'POLITICS', selected: 'false');
 Channel.create!(name: 'MOVIES', selected: 'false');
 
