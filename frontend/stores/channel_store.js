@@ -7,9 +7,6 @@ var _channels = {};
 
 ChannelStore.__onDispatch = function(payload){
   switch(payload.actionType) {
-    case ChannelConstants.SET_CHANNEL_RECEIVED:
-      setChannel(payload.channel);
-      break;
     case ChannelConstants.SINGLE_CHANNEL_RECEIVED:
       addChannel(payload.channel);
       break;
@@ -39,12 +36,4 @@ var resetChannels = function(channels){
   }
 };
 
-ChannelStore.findSelected = function(){
-  console.log(_channels);
-  for (var id in _channels){
-    if (_channels[id].selected === 'true') {
-      return _channels[id];
-    }
-  }
-}
 module.exports = ChannelStore;

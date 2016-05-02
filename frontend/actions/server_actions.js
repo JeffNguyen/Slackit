@@ -19,13 +19,6 @@ var ServerActions = {
     });
   },
 
-  setChannel: function (channel) {
-    Dispatcher.dispatch({
-      actionType: ChannelConstants.SET_CHANNEL_RECEIVED,
-      channel: channel
-    });
-  },
-
   receiveChannel: function(channel) {
     Dispatcher.dispatch({
       actionType: ChannelConstants.SINGLE_CHANNEL_RECEIVED,

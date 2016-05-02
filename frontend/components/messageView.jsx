@@ -49,7 +49,6 @@ var MessageView = React.createClass({
 
     var input = e.target;
     var text = input.value;
-    var channelId = ChannelStore.findSelected().id;
 
     // if the text is blank, do nothing
     if (text === "") return;

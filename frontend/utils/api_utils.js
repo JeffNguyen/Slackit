@@ -1,19 +1,7 @@
 var ServerActions = require('../actions/server_actions.js');
 
-module.exports = {
-// Example Function
-// createPokemon: function (pokemon, callback) {
-// $.ajax({
-// url: 'api/pokemon',
-// method: 'POST',
-// dataType: 'json',
-// data: {pokemon: pokemon},
-// success: function (pokemon) {
-// ServerActions.receiveSinglePokemon(pokemon);
-// callback && callback(pokemon.id);
-// }
-// });
-// }
+var ApiUtil = {
+
   createMessage: function(data){
     $.ajax({
       url: '/api/messages',
@@ -39,16 +27,32 @@ module.exports = {
   },
 
   createChannel: function(data){
+    // console.log(this.createChannelUserEntry);
     $.ajax({
       url: 'api/channels',
       method: 'POST',
       dataType: 'json',
       data: {channel: data},
       success: function (channel){
-        console.log('made');
-        ServerActions.receiveChannel(channel)
+        // when a channel is created successfully, create a join table link with the user
+        debugger
+        this.createChannelUserEntry(channel);
+        ServerActions.receiveChannel(channel);
+      }.bind(this)
+    });
+  },
+
+  createChannelUserEntry: function(channel){
+    $.ajax({
+      url: 'api/channel_users',
+      method: 'POST',
+      dataType: 'json',
+      data: {channel_user: channel},
+      success: function (entry){
+        console.log(entry);
+        console.log("successfully created join table link");
       }
-    })
+    });
   },
 
   fetchAllChannels: function(){
@@ -62,4 +66,20 @@ module.exports = {
     });
   }
 
+  // fetchAllChannels: function(data){
+  //   console.log(data);
+  //   $.ajax({
+  //     url: '/api/channels',
+  //     method: "GET",
+  //     dataType: 'json',
+  //     data: {user_id: data},
+  //     success: function (channels) {
+  //       console.log(channels);
+  //       ServerActions.receiveChannels(channels);
+  //     }
+  //   });
+  // }
+
 };
+
+module.exports = ApiUtil;

@@ -24,14 +24,6 @@ var ChannelIndexItem = React.createClass({
   },
 
   render: function() {
-    // var selected;
-    // if (this.state.selected){
-    //   selected = 'channel-selected';
-    // }
-    // else {
-    //   selected = 'channel-unselected';
-    // }
-    
     var identifier;
     if (parseInt(this.props.channelId) === this.props.channel.id){
       identifier = 'channel-selected';

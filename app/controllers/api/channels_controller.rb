@@ -1,9 +1,13 @@
 class Api::ChannelsController < ApplicationController
 
   def index
-    @channels = Channel.all
-
+    @channels = current_user.channels
     render json: @channels
+
+    # # this works if I pass in the id specifically in the ajax index request - look at api util commented out
+    # user = User.find(params[:id])
+    # @channels = user.channels
+    # render json: @channels
   end
 
   def create

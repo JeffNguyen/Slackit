@@ -17,41 +17,11 @@ var ChannelView = React.createClass({
   componentWillMount: function() {
     this.channelListener = ChannelStore.addListener(this._channelViewChanged);
     ClientActions.fetchAllChannels();
-
   },
 
   _channelViewChanged: function(){
     this.setState({channels: ChannelStore.all()});
   },
-
-  _selected: function(e){
-    // var indexToSelect = e.currentTarget.value;
-    // for (var i = 0; i < this.state.channels.length; i++){
-    //   this.state.channels[i].selected = 'false';
-    // }
-    // this.state.channels[indexToSelect].selected = 'true';
-    // this.setState({channels: this.state.channels})
-  },
-
-  // render: function () {
-  //   return(
-  //     <div className='aside aside-1'>
-  //       {this.state.channels.map(function(channel, index){
-  //         var selected;
-  //         if (channel.selected === 'false'){
-  //           selected = 'channel-unselected';
-  //         } else {
-  //           selected = 'channel-selected';
-  //         }
-  //         return (
-  //           <ChannelIndexItem channel={channel.name} key={channel.id} chosen={this._selected} selected={selected} index={index}/>
-  //         )
-  //       }.bind(this))
-  //     }
-  //     </div>
-
-  //   );
-  // }
 
   render: function () {
     return(

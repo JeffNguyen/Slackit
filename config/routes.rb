@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :messages
     resources :channels
+    resources :channel_users
   end
 
   # for specifying exact routes within devise users

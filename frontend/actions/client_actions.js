@@ -9,10 +9,6 @@ var ClientActions = {
   fetchAllMessages: function(id){
     ApiUtil.fetchAllMessages(id);
   },
-
-  setChannel: function(channel){
-    ServerActions.setChannel(channel);
-  },
   
   createChannel: function(channel){
     ApiUtil.createChannel(channel);
