@@ -25,7 +25,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] Create an account (MVP)
 - [ ] Log in / Log out, including as a Anonymous/Demo User (MVP)
-- [ ] Create, read messages (MVP)
+- [x] Create, read messages (MVP)
 - [ ] Join different channels (MVP)
 - [ ] OAuth Reddit integration - stream real time comments (expected feature, but not MVP)
 - [ ] OAuth Reddit integration - post to threads from within Slackit (expected feature, but not MVP)
@@ -49,40 +49,41 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] Setup new Rails project with Flux architecture skeleton
-- [ ] setup Webpack & Flux scaffold
-- [ ] create `User` model
-- [ ] user signup/signin pages
-- [ ] authentication
-- [ ] redirect to single page app (which will contain all chat based functionality)
+- [x] Setup new Rails project with Flux architecture skeleton
+- [x] setup Webpack & Flux scaffold
+- [x] create `User` model
+- [x] user signup/signin pages
+- [x] authentication
+- [x] redirect to single page app (which will contain all chat based functionality)
 
 ### Phase 2: Chat (1.5 days)
 
 **Objective:** Implement real time chat within Rails/React
 
-- [ ] create `Message' model
-- [ ] seed the database with a small amount of test data (users, messages)
-- [ ] CRUD API for messages ('MessageController')
-- [ ] setup `APIUtil` to interact with the API 
-- [ ] test out API interaction in the console.
+- [x] create `Message' model
+- [x] seed the database with a small amount of test data (users, messages)
+- [x] CRUD API for messages ('MessageController')
+- [x] setup `APIUtil` to interact with the API 
+- [x] test out API interaction in the console.
 
 ### Phase 3: Channel integration with chat and users (1.5 days)
 
 **Objective:** Users can interact with global channels
 
 - [ ] Integrate channel id within messages model
-- [ ] setup React Router
-- [ ] implement Channel component, will be alongside Chat component
-  - [ ] `ChannelIndex`
-  - [ ] `ChannelIndexItem`'
+- [x] setup React Router
+- [x] implement Channel component, will be alongside Chat component
+  - [x] `ChannelView`
+  - [x] `ChannelIndexItem`'
   - [ ] Channel can either be a automatically subscribed channel, a private channel between users, and a private channel between 2 people (DM)
+  - [ ] Structure the channelView to hold separate components - making up global channels, private channels, and private DMs
 
 ### Phase 4: Start Styling (0.5 days)
 
 **Objective:** Existing pages (signup, signin, chat page) will be minimally styled.
 
-- [ ] Import Foundation library
-- [ ] Add custom stylings on top of Foundation
+- [x] Import Foundation library
+- [x] Add custom stylings on top of Foundation
 - [ ] Structure elements to match wireframe
 - [ ] Follow styling guide
 
@@ -90,7 +91,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Create Reddit JSON api functionality.
 
-  - [ ] Setup background requests to Reddit api
+  - [x] Setup background requests to Reddit api
   - [ ] parse data through backend
   - [ ] implement component alongside existing components such as channel/messages
 
@@ -112,4 +113,4 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 ### Bonus Features (TBD)
 - [ ] More reddit integration
 - [ ] Infinite scrolling, pagination
-- [ ] User statistics/dashboard`
+- [ ] User statistics/dashboard

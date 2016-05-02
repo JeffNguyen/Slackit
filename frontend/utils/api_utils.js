@@ -14,7 +14,8 @@ var ApiUtil = {
     });
   },
 
-  // can change how messages gets returned in messageController index - we can filter using activerecord
+    // can't use active record because we need to filter based on hashistory url, need to pass in explicitly
+  // so we know which messages correspond to which channel
   fetchAllMessages: function(id){
     $.ajax({
       url: '/api/messages',
@@ -27,31 +28,15 @@ var ApiUtil = {
   },
 
   createChannel: function(data){
-    // console.log(this.createChannelUserEntry);
     $.ajax({
       url: 'api/channels',
       method: 'POST',
       dataType: 'json',
       data: {channel: data},
       success: function (channel){
-        // when a channel is created successfully, create a join table link with the user
-        debugger
         this.createChannelUserEntry(channel);
-        ServerActions.receiveChannel(channel);
+        ServerActions.receiveSingleChannel(channel);
       }.bind(this)
-    });
-  },
-
-  createChannelUserEntry: function(channel){
-    $.ajax({
-      url: 'api/channel_users',
-      method: 'POST',
-      dataType: 'json',
-      data: {channel_user: channel},
-      success: function (entry){
-        console.log(entry);
-        console.log("successfully created join table link");
-      }
     });
   },
 
@@ -64,7 +49,7 @@ var ApiUtil = {
         ServerActions.receiveChannels(channels);
       }
     });
-  }
+  },
 
   // fetchAllChannels: function(data){
   //   console.log(data);
@@ -79,6 +64,19 @@ var ApiUtil = {
   //     }
   //   });
   // }
+
+  createChannelUserEntry: function(channel){
+    $.ajax({
+      url: 'api/channel_users',
+      method: 'POST',
+      dataType: 'json',
+      data: {channel_user: channel},
+      success: function (entry){
+        console.log(entry);
+        console.log("successfully created join table link");
+      }
+    });
+  }
 
 };
 

@@ -25,9 +25,8 @@ MessageStore.all = function(){
   return messageArray.slice();
 };
 
-MessageStore.last = function(){
-  var all = this.all();
-  return all.pop();
+var createMessage = function(message){
+  _messages.push(message);
 };
 
 var resetMessages = function(messages, id){
@@ -45,9 +44,5 @@ var resetMessages = function(messages, id){
 //     _messages.push(message);
 //   });
 // };
-
-var createMessage = function(message){
-  _messages.push(message);
-};
 
 module.exports = MessageStore;

@@ -17,26 +17,70 @@ what you'll need to do.
 ### message API Request Actions
 
 * `fetchAllMessages`
-  0. invoked from `messageView.jsx` `componentWillMount`
+  0. invoked from `messageView` `componentWillMount`
   0. `GET /api/messages` is called.
   0. `_messagesChanged` is set as the callback.
+
+* `fetchAllMessages`
+  0. invoked from `channelIndexItem` `_setUrl`
+  0. `GET /api/messages` is called.
+  0. no callback set - this is meant to trigger a response in messageView
 
 * `createMessage`
   0. invoked from new message input `onKeyPress`
   0. `POST /api/messages` is called.
-  0. `_onMessage` is set as the callback.
+  0. `this.chatroom.bind('new_message')` is set as the callback.
+  0. this callback will send a request to `fetchAllMessages` to get most up-to-date messages
 
-### channels API Response Actions
+### message API Response Actions
 
 * `receiveMessages`
   0. invoked from an API callback.
-  0. `channel` store resets and updates `_messages` and emits change.
+  0. `message` store resets and updates `_messages` and emits change.
 
 * `receiveSingleMessage`
   0. invoked from an API callback.
-  0. `message` store updates `_messages` and emits change.
+  0. `message` store updates `_messages` with new message and emits change.
 
 ### Store Listeners
 
-* `messageView.jsx` component listens to `message` store.
+* `messageView` component listens to `message` store.
 
+## channel Cycles
+
+### channel API Request Actions
+
+* `fetchAllChannels`
+  0. invoked from `channelView` `componentWillMount`
+  0. `GET /api/channels` is called.
+  0. `_channelViewChanged` is set as the callback.
+
+* `createChannel`
+  0. invoked from `createChannelItem` `handleSubmit`
+  0. `POST /api/channels` is called.
+  0. this will reference the callback set in `channelView` `_channelViewsChanged`
+
+### channel API Response Actions
+
+* `receiveChannels`
+  0. invoked from an API callback.
+  0. `channel` store resets and updates `_channels` and emits change.
+
+* `receiveChannel`
+  0. invoked from an API callback.
+  0. `channel` store updates `_messages` with new channel and emits change.
+
+### Store Listeners
+
+* `channelView` component listens to `channel` store.
+
+## channel_user Cycles
+
+### channel_user API Request Actions
+
+* `createChannelUserEntry`
+  0. invoked only within ApiUtil
+  0. called only when a channel has been successfully created (success function in ajax request)
+  0. will create an entry to the join table linking users with channels
+
+  

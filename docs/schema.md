@@ -28,5 +28,5 @@ session_token     | string    | not null, indexed, unique
 column name       | data type | details
 ----------------  |-----------|-----------------------
 id                | integer   | not null, primary key
-channel_id        | string    | not null, indexed
-user_id           | integer    | not null, indexed
+channel_id        | integer   | not null, indexed
+user_id           | integer   | not null, indexed

@@ -18,7 +18,8 @@ var ChannelIndexItem = require('./components/channelIndexItem');
 var App = React.createClass({
 
   componentWillMount: function() {
-    // later can also check if the id paramter given is not in the list of channels allowed, redirect to default global
+    // later can also check if the id parameter given is not in the allowed list of channels,
+    // redirect to default global
     if (this.props.params.id === undefined){
       HashHistory.push('/' + '1');
       this.props.params.id = 1;
@@ -28,6 +29,9 @@ var App = React.createClass({
     }
   },
 
+  // this.props.params.id is the most important part
+  // it will tell child components how to render their information in the flux architecture
+  // the channelId is integral to get everything else working
   render: function() {
     return (
       <div className= 'global-container'>
@@ -44,13 +48,18 @@ var App = React.createClass({
   }
 });
 
-// can only use this.props.params."id" if in the url - we actually load that specific component
-// so if on path=':id' component={channelview} - in channel view we can access that id,
-// but since we have all components on one interface we can't use params, but have to pass it through explictly in app component (which i did above in the app render)
+// can only use this.props.params."id" if in the url and if we passed it down from parent component
+// to a child component 
+//- if we had path='/:id' nested underneath App and had it load another component, we could access that id
+// through this.props.params.id, 
+// but since we have all components on one interface all underneath 'App' component, we have to pass it down
+// explicitly here, we can't access this.props.params.id from url because there is no nesting of components
 
-// using a div because adjacent jsx elements need to contained in 1 html element
-// also they are side by side because if they were nested, then if i went to '/1' it would render twice, it would match the '/' and also the '/:id'
-// this means it either hits '/' or '/id' - if it hits the '/' i check in componentwillmount of {app} to see if id is undefined - which it is so i set
+// see above {this.props.params.id} will represent the current :id 
+
+// need a div because adjacent jsx elements aren't allowed
+// need to be side by side because if they were nested, then if i went to '/1' it would render twice, it would match the '/' and also the '/:id'
+// now it means it either hits '/' or '/id' - if it hits the '/' i check in componentwillmount of {app} to see if id is undefined - which it is so i set
 // it by default to 1 and update hashhistory, which will trigger appropriate render, and automatically select global as default channel since i passed
 // the update params id all the way into channelview -> channelindexitem
 var routes = (

@@ -28,12 +28,19 @@
 ### Messages
 
 - `GET /api/messages`
-  - loads channel specific messages based on what channel the user clicks
-- `POST /api/messages``
+  - loads channel specific messages based on what channel the user clicks 
+  - relies on passing in channel id based on react router url :id, will filter in store when all messages come back
+- `POST /api/messages`
 
 ### Channels
 
 - `GET /api/channels`
+- `POST /api/channels`
+  - as soon as a channel is successfully created, trigger a post request to make channel_user join table entry
+
+### Channel_users
+
+- `POST /api/channel_users`
 
 ### Reddit
 

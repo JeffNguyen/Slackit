@@ -19,7 +19,7 @@ var ServerActions = {
     });
   },
 
-  receiveChannel: function(channel) {
+  receiveSingleChannel: function(channel) {
     Dispatcher.dispatch({
       actionType: ChannelConstants.SINGLE_CHANNEL_RECEIVED,
       channel: channel

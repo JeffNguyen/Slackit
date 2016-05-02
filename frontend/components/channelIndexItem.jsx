@@ -5,22 +5,15 @@ var ChannelStore = require('../stores/channel_store');
 var hashHistory = require('react-router').hashHistory;
 
 var ChannelIndexItem = React.createClass({
-  
-  getInitialState: function() {
-    return ({
-      selected: ''
-    })
-  },
 
   _setUrl: function(){
     hashHistory.push('/' + this.props.channel.id);
+
     // once I click a channel, I set the url which will re render this specific component
-    // but I need to also call fetch messages on the new channel id, this will activate
-    // the established listener in the messageView.jsx
-    // flux architecture
+    // I also need to also call fetch messages on the new channel id, this will activate
+    // the established listener in the messageView.jsx based on flux architecture
     ClientActions.fetchAllMessages(this.props.channel.id);
     ClientActions.fetchStream(this.props.channel.name.toLowerCase());
-    // this.setState({selected: true});
   },
 
   render: function() {

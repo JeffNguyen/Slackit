@@ -7,7 +7,8 @@ class Api::MessagesController < ApplicationController
   # skip_before_action :verify_authenticity_token
 
   def index
-    @messages = Message.all
+    # @messages = Message.all
+    @messages = Message.where(user_id: current_user.id)
     render json: @messages
   end
 

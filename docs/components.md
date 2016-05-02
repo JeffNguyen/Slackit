@@ -1,9 +1,12 @@
 ## Component Hierarchy
 
-* `Chat`
-  * `channelsIndex`
-    * `channelIndexItem'
+* `App`
+  * `headerView`
+  * `channelView`
+    * `channelIndexItem`
+    * `createChannelItem`
   * `messageView`
     * `messageList`
-  * `streamIndex`
+  * `streamView`
     * `streamIndexItem`
+  * `footerView`

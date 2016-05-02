@@ -8,7 +8,6 @@ var MessageStore = require('../stores/message_store');
 var MessageView = React.createClass({
 
   getInitialState: function() {
-    // used this.props.channelId which was passed down from the parent component which knows the url identifier of the channel
     return {
       messages: []
     };
@@ -18,7 +17,7 @@ var MessageView = React.createClass({
     this.pusher = new Pusher('620a5490a2480b3fe75a');
     this.chatRoom = this.pusher.subscribe('messages');
 
-    // method of loading all past messages based on successful subscription to channel
+    // loading all past messages based on successful subscription to channel
     this.chatRoom.bind('pusher:subscription_succeeded', function(){
       this.messageListener = MessageStore.addListener(this._messagesChanged);
       ClientActions.fetchAllMessages(parseInt(this.props.channelId));
@@ -36,7 +35,7 @@ var MessageView = React.createClass({
   },
 
   componentWillReceiveProps: function() {
-    // to handle receiveing props through router
+    // to handle receiving props through router
     // ClientActions.fetchAllMessages(this.props.channelId);
   },
 
