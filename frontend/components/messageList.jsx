@@ -1,14 +1,13 @@
 var React = require('react');
 
 var MessageList = React.createClass({
-
+  // window.current_user information is all strings
   componentWillMount: function() {
     this.sign_in_count = window.current_user.sign_in_count;
   },
 
   render: function() {
     var list;
-    // window.current_user information is all strings
 
     // will handle tutorial part 
 

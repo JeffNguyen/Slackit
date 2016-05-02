@@ -5,6 +5,7 @@
   * `channelView`
     * `channelIndexItem`
     * `createChannelItem`
+    * `addPeopleChannelItem`
   * `messageView`
     * `messageList`
   * `streamView`

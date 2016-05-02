@@ -79,8 +79,11 @@ what you'll need to do.
 ### channel_user API Request Actions
 
 * `createChannelUserEntry`
-  0. invoked only within ApiUtil
-  0. called only when a channel has been successfully created (success function in ajax request)
-  0. will create an entry to the join table linking users with channels
+  0. invoked from `addPeopleChannelItem` `_handleSubmit`
+  0. `POST /api/channel_users` is called
+  0. will create an entry to the join table linking specified user with specified channel
+  0. user is specified through passing in client side email parameter
+
+
 
   

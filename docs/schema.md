@@ -4,8 +4,9 @@
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-selected    | string    | not null
 name        | string    | not null
+public      | boolean   | not null
+message     | boolean   | not null
 
 ## messages
 column name | data type | details

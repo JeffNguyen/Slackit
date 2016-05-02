@@ -6,9 +6,11 @@ class Api::MessagesController < ApplicationController
 
   # skip_before_action :verify_authenticity_token
 
+  # can you filter messages here instead of in the MessageStore based on Channel ID
   def index
-    # @messages = Message.all
-    @messages = Message.where(user_id: current_user.id)
+    # tack on user with message in jbuilder
+    @messages = Message.all
+    # @messages = Message.where(user_id: current_user.id)
     render json: @messages
   end
 

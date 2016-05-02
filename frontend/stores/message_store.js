@@ -38,11 +38,4 @@ var resetMessages = function(messages, id){
   });
 };
 
-// var resetMessages = function(messages){
-//   _messages = [];
-//   messages.forEach(function(message){
-//     _messages.push(message);
-//   });
-// };
-
 module.exports = MessageStore;

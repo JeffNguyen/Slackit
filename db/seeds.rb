@@ -9,11 +9,11 @@
 ActiveRecord::Base.transaction do
   User.create!(email: 'user@email.com', password: 'password')
 
-  Channel.create!(name: 'ALL', selected: 'true');
-  Channel.create!(name: 'NBA', selected: 'false');
-  Channel.create!(name: 'MLB', selected: 'false');
-  Channel.create!(name: 'POLITICS', selected: 'false');
-  Channel.create!(name: 'MOVIES', selected: 'false');
+  Channel.create!(name: 'ALL', public: true, message: false);
+  Channel.create!(name: 'NBA', public: true, message: false);
+  Channel.create!(name: 'MLB', public: true, message: false);
+  Channel.create!(name: 'POLITICS', public: true, message: false);
+  Channel.create!(name: 'MOVIES', public: true, message: false);
 
   ChannelUser.create!(channel_id: 1, user_id: 1)
   ChannelUser.create!(channel_id: 2, user_id: 1)

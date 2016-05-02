@@ -41,6 +41,7 @@
 ### Channel_users
 
 - `POST /api/channel_users`
+  - when a user adds a person to the channel, must link the person they want to add to the join table so there is a relationship between channel and specified user (found through email)
 
 ### Reddit
 

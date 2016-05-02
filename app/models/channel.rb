@@ -1,6 +1,7 @@
 class Channel < ActiveRecord::Base
 
-  validates :name, :selected, presence: true
+  validates :name, presence: true
+  validates :public, :message, inclusion: {in: [true, false]}
 
   has_many :messages
 

@@ -3,13 +3,17 @@ var Modal = require('react-modal');
 var ModalStyle = require('./style/modal_style');
 var ClientActions = require('../actions/client_actions');
 
-var CreateChannelItem = React.createClass({
+var AddPeopleChannelItem = React.createClass({
   getInitialState: function(){
-    return({modelOpen: false});
+    return({modalOpen: false});
   },
 
   _handleClick: function(){
     this.setState({modalOpen: true});
+  },
+
+  _handleClose: function(){
+    this.setState({modalOpen: false});
   },
 
   componentWillUpdate: function(){
@@ -29,28 +33,29 @@ var CreateChannelItem = React.createClass({
     ModalStyle.content.opacity = 100;
   },
 
-  handleSubmit: function(e){
+  _handleSubmit: function(e){
     if (e.nativeEvent.keyCode != 13) return;
-    
-    // message will determine if DM or private channel
-    var name = e.currentTarget.value;
-    var channel = {name: name, public: false, message: false};
-    ClientActions.createChannel(channel);
-    this.setState({modalOpen: false});
+
+    var email = e.currentTarget.value;
+    var object = {id: this.props.channelId, email: email}
+
+    ClientActions.createChannelUser(object);
+
   },
 
   render: function(){
     return (
       <div>
-        <button onClick={this._handleClick}>Create Channel</button>
+        <button onClick={this._handleClick}>+</button>
+
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this._handleClose}
           style={ModalStyle}
           onAfterOpen={this._handleOpen}>
-            
-          <input onKeyPress={this.handleSubmit} placeholder='Create Channel' ref='channelInput'/><br/>
-          <button onClick={this._handleClose}>Cancel</button>
+
+          <input onKeyPress={this._handleSubmit} placeholder='Enter email of person to invite' ref='channelInput'/> &nbsp;
+          <button onClick={this._handleClose}>Cancel</button><br/><br/>
 
         </Modal>
       </div>
@@ -58,4 +63,4 @@ var CreateChannelItem = React.createClass({
   }
 });
 
-module.exports = CreateChannelItem; 
+module.exports = AddPeopleChannelItem;

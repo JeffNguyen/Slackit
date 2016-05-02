@@ -24,12 +24,18 @@ var ChannelView = React.createClass({
   },
 
   render: function () {
+    // channel will have public or private boolean from db
     return(
       <div className='aside aside-1'>
         <CreateChannelItem />
         {this.state.channels.map(function(channel, index){
           return (
-            <ChannelIndexItem channel={channel} key={channel.id} channelId={this.props.channelId}/>
+            <ChannelIndexItem 
+              channel={channel} 
+              key={channel.id} 
+              channelId={this.props.channelId}
+              public={channel.public} 
+            />
           )
         }.bind(this))
       }

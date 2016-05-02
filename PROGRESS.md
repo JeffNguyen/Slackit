@@ -12,7 +12,10 @@ Progress
 
 * Don't try breaking up the asset pipeline, if there is a collision, just use different class names or resolve the collision using overwriting precedence. 
 
-* Use JBuilder to specify parts of the JSON, controls what gets sent to the client side.
+* Use JBuilder to specify parts of the JSON and add additional information to base JSON object (can use associations here etc), controls what gets sent to the client side.
+
+* JBuilder is for making the controller cleaner and tacking on data and formatting the JSON nicely to send back to the client side
+ActiveRecord fancy stuff like includes, joins is when you'd want to do something like (messages -> find users -> grab information within users etc)
 
 * Built a functional webchat app using this guide - https://blog.pusher.com/making-reactjs-realtime-with-websockets/ 
 * Example here - https://github.com/pusher-community/react-realtime-chat
@@ -31,16 +34,10 @@ script tag, use ruby interpolation to be able to use 'current_user' or any ruby 
 append the information that was calculated to the window, so now when you run reactJS - you
 can reference the window as it has variables binded to it - so in this case window.current_user has the information we needed on the client side.
 
-I created a channel store that held channel objects and a selected string - so it was an object that contained objects (channel obj, selected string) this made it incredibly tedious to navigate through to get selected and change it according to onclick, so I ended up just adding a selected column
-in my database so it could be apart of the channel object which made it much easier.
-
 React Router is really powerful with ReactJS. I was trying to pass around ids and data between my message_store, channel_store, messageView, and channelView to make sure they line up - so a specifical channel will trigger a specific message list to be shown. This involved a lot of code and passing around a lot of information in the html and javascript. 
 
 Way to solve it was to actually set up react router - so since my page is a single chat interface - I rendered based on '/' or '/:id' and I passed that id (or a default one) as a prop to the children of my parent global component (which is App). The children are all the main components underneath it (ChannelView, HeaderView, FooterView, MessageView, StreamView). Since the channelView and messageView are siblings, I simply passed the props.channelId to both of them, so they both have reference to the :id in the 'url' - so they will always be on the same page. I just have to trigger the listener in messageView based on channel click so the messagelist will update. Since the url will be always the same, I can create actions based on the channelView which will associate with the messageView and anything else on the page.
 
-
-Ask about the channel/user join table and if there is a cleaner way to associate them, either in the backend, through associations, ajax request, or the best way to populate the data to serve to the client. Is it possible to rely on other models within a controller to get the data you want?
-
 TODO: Ask about why refresh pushes the scroll a little down on the chat, fix flexbox weirdness where it collapses when we dont want it to
 
-TOD: Make it so that when you create a new account - you are automatically subscribed to certain channels (this involves creating join table entry to link said user)
+TODO: Remove username from message database since it denormalizes it - use message.user association to grab email

@@ -33,6 +33,7 @@ var App = React.createClass({
   // it will tell child components how to render their information in the flux architecture
   // the channelId is integral to get everything else working
   render: function() {
+    // make this props params id local and set to 1 if undefined explicitly
     return (
       <div className= 'global-container'>
         <div className="wrapper">
