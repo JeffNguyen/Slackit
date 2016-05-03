@@ -34,10 +34,10 @@ ActiveRecord::Base.transaction do
     ChannelUser.create!(channel_id: 5, user_id: t+2)
   end
 
-  Message.create!(username: 'Global says', text: 'Testing global', user_id: 1, channel_id: 1);
-  Message.create!(username: 'Basketball says', text: 'Testing basketball', user_id: 2, channel_id: 2)
-  Message.create!(username: 'Baseball says', text: 'Testing baseball', user_id: 3, channel_id: 3)
-  Message.create!(username: 'Politics says', text: 'Testing politics', user_id: 4, channel_id: 4)
-  Message.create!(username: 'Movies says', text: 'Testing movies' , user_id: 5, channel_id: 5)
+  Message.create!(text: 'Testing global', user_id: 1, channel_id: 1);
+  Message.create!(text: 'Testing basketball', user_id: 2, channel_id: 2)
+  Message.create!(text: 'Testing baseball', user_id: 3, channel_id: 3)
+  Message.create!(text: 'Testing politics', user_id: 4, channel_id: 4)
+  Message.create!(text: 'Testing movies' , user_id: 5, channel_id: 5)
 
 end

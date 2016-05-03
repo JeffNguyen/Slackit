@@ -29,8 +29,8 @@ what you'll need to do.
 * `createMessage`
   0. invoked from new message input `onKeyPress`
   0. `POST /api/messages` is called.
-  0. `this.chatroom.bind('new_message')` is set as the callback.
-  0. this callback will send a request to `fetchAllMessages` to get most up-to-date messages
+  0. `this.chatroom.bind('new_message')` is set to listen to any newly created messages
+  0. `_messagesChanged` will be invoked from the MessageStore 
 
 ### message API Response Actions
 

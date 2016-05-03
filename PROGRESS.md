@@ -40,4 +40,6 @@ Way to solve it was to actually set up react router - so since my page is a sing
 
 TODO: Ask about why refresh pushes the scroll a little down on the chat, fix flexbox weirdness where it collapses when we dont want it to
 
-TODO: Remove username from message database since it denormalizes it - use message.user association to grab email
+TODO: Hardcore a sleep timer which allows all the components to load through the flux architecture -
+based on the sleep timer, show a javascript/css spinner or something and then when the time is gone,
+remove the css timer

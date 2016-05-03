@@ -14,7 +14,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
 channel_id  | integer   | not null, foreign key (references messages), indexed
-username    | string    | not null
 text        | string    | not null 
 
 ## users

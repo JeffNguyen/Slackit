@@ -5,6 +5,12 @@ var ClientActions = require('../actions/client_actions');
 var ChannelStore = require('../stores/channel_store');
 var MessageStore = require('../stores/message_store');
 
+// A user listening to other messages in the channel will only render once - in the chatroom.bind
+// where fetchAllMessages is called - it will always fetch the most up to date messages
+
+// A user that is creating a message will re render its component twice - one when the message
+// gets created and the Store emits changed and also since there is a new message - the 
+// chatroom.bind will also call fetchAllMessages
 var MessageView = React.createClass({
 
   getInitialState: function() {
