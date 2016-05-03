@@ -17,29 +17,34 @@ var ChannelIndexItem = require('./components/channelIndexItem');
 
 var App = React.createClass({
 
-  componentWillMount: function() {
-    // later can also check if the id parameter given is not in the allowed list of channels,
-    // redirect to default global
-    if (this.props.params.id === undefined){
-      HashHistory.push('/' + '1');
-      this.props.params.id = 1;
-    }
-    else {
-      HashHistory.push('/' + this.props.params.id)
-    }
-  },
+  // componentWillMount: function() {
+  //   // later can also check if the id parameter given is not in the allowed list of channels,
+  //   // redirect to default global
+  //   if (this.props.params.id === undefined){
+  //     HashHistory.push('/' + '1');
+  //     this.props.params.id = 1;
+  //   }
+  //   else {
+  //     HashHistory.push('/' + this.props.params.id)
+  //   }
+  // },
 
   // this.props.params.id is the most important part
   // it will tell child components how to render their information in the flux architecture
   // the channelId is integral to get everything else working
   render: function() {
-    // make this props params id local and set to 1 if undefined explicitly
+    var id;
+    if (this.props.params.id === undefined){
+      id = 1;
+    } else {
+      id = this.props.params.id;
+    }
     return (
       <div className= 'global-container'>
         <div className="wrapper">
           <HeaderView />
-          <MessageView channelId={this.props.params.id}/>
-          <ChannelView channelId={this.props.params.id}/>
+          <MessageView channelId={id}/>
+          <ChannelView channelId={id}/>
           <StreamView />
           <FooterView />
         </div>

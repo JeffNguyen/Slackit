@@ -19,9 +19,6 @@ var CreateChannelItem = React.createClass({
 
   _handleOpen: function(){
     ModalStyle.content.opacity = 100;
-    // passing timeout as a callback in Modal - onAfterOpen(handleOpen)
-    // failed for some reason
-    // this.autoFocus();
     this.refs.channelInput.focus();
   },
 

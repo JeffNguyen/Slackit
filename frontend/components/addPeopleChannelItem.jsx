@@ -16,14 +16,6 @@ var AddPeopleChannelItem = React.createClass({
     this.setState({modalOpen: false});
   },
 
-  componentWillUpdate: function(){
-    // autofocuses on the channel creation - need a timer so it gives the input in render a chance
-    // to show up on page, then we can autofocus
-    setTimeout(function(){
-      this.refs.channelInput.focus();
-    }.bind(this), 100)
-  },
-
   _handleClose: function(){
     this.setState({modalOpen: false});
     ModalStyle.content.opacity = 0;
@@ -31,7 +23,6 @@ var AddPeopleChannelItem = React.createClass({
 
   _handleOpen: function(){
     ModalStyle.content.opacity = 100;
-    // this.autoFocus();
     this.refs.channelInput.focus();
   },
 
