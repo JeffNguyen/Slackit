@@ -1,3 +1,10 @@
+/*PLAN: Take the header/footer outside the wrapper
+so it no longer gets flexed - add a parent div over
+channel,message,stream and flex it so the children
+can be ordered - then tweak it based on min/max width/height
+and add overflow-y:scroll on both channel/stream
+*/
+
 .wrapper {
   display: -webkit-box;
   display: -moz-box;

@@ -31,6 +31,8 @@ var AddPeopleChannelItem = React.createClass({
 
   _handleOpen: function(){
     ModalStyle.content.opacity = 100;
+    // this.autoFocus();
+    this.refs.channelInput.focus();
   },
 
   _handleSubmit: function(e){
@@ -41,6 +43,12 @@ var AddPeopleChannelItem = React.createClass({
 
     ClientActions.createChannelUser(object);
 
+  },
+
+  autoFocus: function(){
+    setTimeout(function(){
+      this.refs.channelInput.focus();
+    }.bind(this), 0)
   },
 
   render: function(){

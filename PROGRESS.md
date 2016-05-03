@@ -43,3 +43,6 @@ TODO: Ask about why refresh pushes the scroll a little down on the chat, fix fle
 TODO: Hardcore a sleep timer which allows all the components to load through the flux architecture -
 based on the sleep timer, show a javascript/css spinner or something and then when the time is gone,
 remove the css timer
+
+To pass information from child to parent - the parent needs to pass a callback and the child will
+execute the callback and send it back to the parent

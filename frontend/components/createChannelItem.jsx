@@ -12,14 +12,6 @@ var CreateChannelItem = React.createClass({
     this.setState({modalOpen: true});
   },
 
-  componentWillUpdate: function(){
-    // autofocuses on the channel creation - need a timer so it gives the input in render a chance
-    // to show up on page, then we can autofocus
-    setTimeout(function(){
-      this.refs.channelInput.focus();
-    }.bind(this), 100)
-  },
-
   _handleClose: function(){
     this.setState({modalOpen: false});
     ModalStyle.content.opacity = 0;
@@ -27,6 +19,10 @@ var CreateChannelItem = React.createClass({
 
   _handleOpen: function(){
     ModalStyle.content.opacity = 100;
+    // passing timeout as a callback in Modal - onAfterOpen(handleOpen)
+    // failed for some reason
+    // this.autoFocus();
+    this.refs.channelInput.focus();
   },
 
   handleSubmit: function(e){
@@ -37,6 +33,12 @@ var CreateChannelItem = React.createClass({
     var channel = {name: name, public: false, message: false};
     ClientActions.createChannel(channel);
     this.setState({modalOpen: false});
+  },
+
+  autoFocus: function(){
+    setTimeout(function(){
+      this.refs.channelInput.focus();
+    }.bind(this), 0)
   },
 
   render: function(){
