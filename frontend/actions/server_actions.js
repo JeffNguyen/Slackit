@@ -11,11 +11,10 @@ var ServerActions = {
     });
   },
 
-  receiveMessages: function (messages, id) {
+  receiveMessages: function (messages) {
     Dispatcher.dispatch({
       actionType: MessageConstants.MESSAGES_RECEIVED,
-      messages: messages,
-      id: id
+      messages: messages
     });
   },
 
@@ -24,6 +23,13 @@ var ServerActions = {
       actionType: ChannelConstants.SINGLE_CHANNEL_RECEIVED,
       channel: channel
     });
+  },
+
+  receiveRequestCurrentChannel: function(channel) {
+    Dispatcher.dispatch({
+      actionType: ChannelConstants.CURRENT_CHANNEL_REQUEST_RECEIVED,
+      channel: channel
+    })
   },
 
   receiveChannels: function(channels) {

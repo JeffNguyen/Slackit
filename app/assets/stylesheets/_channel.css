@@ -1,0 +1,35 @@
+.channel-container {
+  width: 100%;
+}
+
+.create-channel-item {
+  width: 100%;
+}
+
+div[class^='channel-selected']{
+  padding: 5px;
+}
+
+div[class^='channel-unselected']{
+  padding: 5px;
+}
+
+
+.channel-selected {
+  background: #ed8928;
+  width: 75%;
+  display: inline-block;
+  text-align: left;
+  border-radius: 0 100px 100px 0;
+}
+
+.channel-unselected {
+  display: inline-block;
+  width: 75%;
+  text-align: left;
+}
+
+.add-people-button {
+  display: inline-block;
+  width: 10%;
+}

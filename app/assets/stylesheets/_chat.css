@@ -1,0 +1,18 @@
+body {
+  /*padding: 10px;*/
+}
+.chat {
+  overflow-y: scroll;
+  border: 1px solid;
+  margin: 3%;
+  flex: 100;
+}
+
+.input-message {
+  flex: 1;
+  margin: 1%;
+}
+
+.message-item {
+  padding: 5px;
+}

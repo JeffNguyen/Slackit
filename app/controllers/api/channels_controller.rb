@@ -19,6 +19,11 @@ class Api::ChannelsController < ApplicationController
     end
   end
 
+  def show
+    @channel = Channel.find(params[:id])
+    render json: @channel
+  end
+
 
   private
 

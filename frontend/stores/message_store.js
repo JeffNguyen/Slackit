@@ -29,12 +29,10 @@ var createMessage = function(message){
   _messages.push(message);
 };
 
-var resetMessages = function(messages, id){
+var resetMessages = function(messages){
   _messages = [];
   messages.forEach(function(message){
-    if (message.channel_id === id) {
-      _messages.push(message);
-    }
+    _messages.push(message);
   });
 };
 

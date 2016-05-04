@@ -21,8 +21,9 @@ var ApiUtil = {
       url: '/api/messages',
       method: "GET",
       dataType: 'json',
+      data: {channel_id: id},
       success: function (messages) {
-        ServerActions.receiveMessages(messages, id);
+        ServerActions.receiveMessages(messages);
       }
     });
   },
@@ -35,8 +36,19 @@ var ApiUtil = {
       data: {channel: data},
       success: function (channel){
         ServerActions.receiveSingleChannel(channel);
-      }.bind(this)
+      }
     });
+  },
+
+  fetchSingleChannel: function(id){
+    $.ajax({
+      url: 'api/channels/' + id,
+      method: 'GET',
+      dataType: 'json',
+      success: function(channel){
+        ServerActions.receiveRequestCurrentChannel(channel);
+      }
+    })
   },
 
   fetchAllChannels: function(){

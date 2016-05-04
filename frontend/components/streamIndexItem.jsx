@@ -6,7 +6,7 @@ var StreamIndexItem = React.createClass({
   render: function() {
 
     return (
-      <div>
+      <div className='stream-item'>
           <a href={this.props.content.url} className='stream-item'>{this.props.content.title}</a>
         <br/>
       </div>

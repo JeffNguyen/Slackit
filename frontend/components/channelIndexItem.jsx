@@ -14,6 +14,9 @@ var ChannelIndexItem = React.createClass({
     // I also need to also call fetch messages on the new channel id, this will activate
     // the established listener in the messageView.jsx based on flux architecture
     ClientActions.fetchAllMessages(this.props.channel.id);
+
+    // to update the store for currentChannel which will update the addPeople icon in header
+    // ClientActions.fetchSingleChannel(this.props.channel.id);
     // ClientActions.fetchStream(this.props.channel.name.toLowerCase());
   },
 
@@ -28,32 +31,29 @@ var ChannelIndexItem = React.createClass({
 
     var list;
 
-    // <AddPeopleChannelItem channelId={this.props.channel.id}/>
-    // the prop shouldn't be based on channelId because whatever is in the url
-    // might not necessarily reflect what channel the '+' button is associated with
-    // I can click the + and if I use this.props.channelId, it will pass in the current 
-    // channel I'm viewing, but I can add people even if I don't have the channel selected
-    // since it's a modal
-
-    // public channel
-    // leave it up to interpretation of private DM vs channel
     if (this.props.channel.public){
-      list =         
-          <button className={identifier} onClick={this._setUrl}>
-            {this.props.channel.name}
-          </button>
+      list =  
+        <div className='channel-item'>
+          <div className={identifier} >       
+            <button onClick={this._setUrl}>
+              {this.props.channel.name}
+            </button>
+          </div>
+        </div>
     } else {
       list =
-          <div>
-            <button className={identifier} onClick={this._setUrl}>
+        <div className='channel-item'>
+          <div className={identifier}>
+            <button  onClick={this._setUrl}>
               {this.props.channel.name}
             </button> &nbsp;
-            <AddPeopleChannelItem channelId={this.props.channel.id}/>
           </div>
+          <AddPeopleChannelItem channelId={this.props.channel.id} />
+        </div>
     }
 
     return (
-      <div>
+      <div className='channel-container'>
         <br/>
         {list}
       </div>

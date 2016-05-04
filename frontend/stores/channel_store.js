@@ -4,6 +4,7 @@ var ChannelConstants = require('../constants/channel_constants');
 var ChannelStore = new Store(Dispatcher);
 
 var _channels = {};
+var current_channel = [];
 
 ChannelStore.__onDispatch = function(payload){
   switch(payload.actionType) {
@@ -12,6 +13,9 @@ ChannelStore.__onDispatch = function(payload){
       break;
     case ChannelConstants.CHANNELS_RECEIVED:
       resetChannels(payload.channels);
+      break;
+    case ChannelConstants.CURRENT_CHANNEL_REQUEST_RECEIVED:
+      setCurrentChannel(payload.channel)
       break;
   }
   this.__emitChange();
@@ -25,6 +29,12 @@ ChannelStore.all = function(){
   return channelArray.slice();
 };
 
+ChannelStore.currentChannel = function(){
+  var curr = [];
+  curr.push(current_channel[0]);
+  return curr.slice();
+}
+
 var addChannel = function(channel){
   _channels[channel.id] = channel
 };
@@ -34,6 +44,11 @@ var resetChannels = function(channels){
   for (var i = 0; i < channels.length; i++) {
     _channels[channels[i].id] = channels[i];
   }
+};
+
+var setCurrentChannel = function(channel){
+  current_channel = []
+  current_channel.push(channel);
 };
 
 module.exports = ChannelStore;

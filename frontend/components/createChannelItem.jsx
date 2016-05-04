@@ -40,7 +40,7 @@ var CreateChannelItem = React.createClass({
 
   render: function(){
     return (
-      <div>
+      <div className='create-channel-item'>
         <button onClick={this._handleClick}>Create Channel</button>
         <Modal
           isOpen={this.state.modalOpen}

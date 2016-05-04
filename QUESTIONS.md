@@ -1,1 +1,0 @@
-Ask about the setTimeout and autofocus

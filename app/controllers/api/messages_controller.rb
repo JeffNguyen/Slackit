@@ -8,9 +8,12 @@ class Api::MessagesController < ApplicationController
 
   # can you filter messages here instead of in the MessageStore based on Channel ID
   def index
-    # to avoid N+1 query
-    # JBuilder adds user.email as JSON to the message list getting passed to client side
-    @messages = Message.includes(:user)
+    # includes to avoid N+1 query
+    # JBuilder adds user.email as JSON to the messages array getting passed to client side
+    # filter the channel id here instead of on client side - so we only return messages
+    # associated with the specific channel id passed in as a parameter in the AJAX call
+    @channel_id = Integer(params[:channel_id])
+    @messages = Message.includes(:user).where(["channel_id = ?", @channel_id])
     render :index
   end
 

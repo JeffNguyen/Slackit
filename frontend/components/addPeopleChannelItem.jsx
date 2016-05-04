@@ -27,6 +27,7 @@ var AddPeopleChannelItem = React.createClass({
   },
 
   _handleSubmit: function(e){
+    console.log(this.props.channelId);
     if (e.nativeEvent.keyCode != 13) return;
 
     var email = e.currentTarget.value;
@@ -44,8 +45,8 @@ var AddPeopleChannelItem = React.createClass({
 
   render: function(){
     return (
-      <div>
-        <button onClick={this._handleClick}>+</button>
+      <div className='add-people-button'>
+        <button type='button' onClick={this._handleClick}><i className="fa fa-user-plus" aria-hidden="true"></i></button>
 
         <Modal
           isOpen={this.state.modalOpen}

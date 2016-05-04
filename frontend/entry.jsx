@@ -11,7 +11,6 @@ var MessageView = require('./components/messageView');
 var ChannelView = require('./components/channelView');
 var HeaderView = require('./components/headerView');
 var StreamView = require('./components/streamView');
-var FooterView = require('./components/footerView');
 
 var ChannelIndexItem = require('./components/channelIndexItem');
 
@@ -41,12 +40,11 @@ var App = React.createClass({
     }
     return (
       <div className= 'global-container'>
+        <HeaderView />
         <div className="wrapper">
-          <HeaderView />
           <MessageView channelId={id}/>
           <ChannelView channelId={id}/>
           <StreamView />
-          <FooterView />
         </div>
         {this.props.children}
       </div>

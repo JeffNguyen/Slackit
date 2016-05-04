@@ -18,6 +18,10 @@ var ClientActions = {
     ApiUtil.fetchAllChannels();
   },
 
+  fetchSingleChannel: function(id){
+    ApiUtil.fetchSingleChannel(id);
+  },
+
   createChannelUser: function(email){
     ApiUtil.createChannelUserEntry(email)
   },

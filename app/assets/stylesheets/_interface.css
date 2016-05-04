@@ -1,9 +1,24 @@
-/*PLAN: Take the header/footer outside the wrapper
-so it no longer gets flexed - add a parent div over
-channel,message,stream and flex it so the children
-can be ordered - then tweak it based on min/max width/height
-and add overflow-y:scroll on both channel/stream
-*/
+/* html and webkit modifiers are to hide scrollbar */
+/* http://muaz-khan.github.io/Everything/CSS3/scroll-bar/ */
+/* scrollbar doesn't work in firefox */
+html {
+  overflow: scroll;
+  overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+  background: black;
+}
+
+.global-container {
+  height: 100vh;
+  width: 100vw;
+}
 
 .wrapper {
   display: -webkit-box;
@@ -12,12 +27,12 @@ and add overflow-y:scroll on both channel/stream
   display: -webkit-flex;
   display: flex;  
   
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
+  flex-direction: column;
   
   font-weight: bold;
   text-align: center;
-  height: 100%;
+  height: 93%;
+  width: 100%;
 }
 
 .wrapper > * {
@@ -25,62 +40,43 @@ and add overflow-y:scroll on both channel/stream
   flex: 1 100%;
 }
 
-.chat-header {
-  background: tomato;
-  text-align: right;
-  height: 5%;
-}
-
-.footer {
-  background: lightgreen;
-  height: 5%;
-}
-
 .main {
   text-align: left;
-  background: deepskyblue;
-  height: 90%;
+  background: white;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .aside-1 {
-  background: gold;
+  background: #ebeef3;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .aside-2 {
-  background: hotpink;
+  background: #f3f0eb;
+  overflow-y: scroll;
+  flex: 1;
 }
 
-@media all and (min-width: 600px) {
+/*@media all and (min-width: 600px) {
   .aside { flex: 1 auto; }
-}
+}*/
 
 @media all and (min-width: 800px) {
-  .main    { flex: 3 0px; }
-  .aside-1 { order: 1; } 
-  .main    { order: 2; }
-  .aside-2 { order: 3; }
-  .footer  { order: 4; }
+  .aside-1 { order: 1; flex: 3; height: 100%;} 
+  .main    { order: 2;   flex: 12; height: 100%;}
+  .aside-2 { order: 3;   flex: 5; height: 100%;}
+  .wrapper {flex-direction: row;}
 }
+
+/* when the browser is 800px - I establish the flex and height property and set the direction to row based */
+/* when the browser is below 800px - it defaults to the generic flexes established in the corresponding class selectors */
+/* I can do more conditions, like when the window is really large - I don't necessarily want to keep the ratio the same
+between the 3 main objects - I might limit the channel width */
 
 body {
   padding: 2em; 
 }
-
-.global-container {
-  height: 100vh;
-}
-
-.input-message {
-  width: 100%;
-}
-
-.channel-selected {
-  background-color: orange;
-}
-
-.stream-item {
-  width: 5%;
-}
-
-/*ASIDE 1 AND 2 CHANGE DEPENDING ON WIDTH OF TEXT
-NEED TO HAVE FIXED SIZE*/
