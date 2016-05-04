@@ -30,6 +30,10 @@ var HeaderView = React.createClass({
     window.location.href = 'users/edit'
   },
 
+  _redditStream: function(){
+    ClientActions.activateStream();
+  },
+
   render: function() {
     var add;
 
@@ -40,8 +44,15 @@ var HeaderView = React.createClass({
         </div>
         <div className='header-right'>
           {this.state.username}&nbsp; | &nbsp;
-          <button onClick={this._settings}>Settings</button>&nbsp;| &nbsp;
-          <button onClick={this._logout}>Logout</button>&nbsp;
+          <button onClick={this._redditStream}>
+            <i className="fa fa-reddit-alien" aria-hidden="true"></i>
+          </button>&nbsp; | &nbsp;
+          <button onClick={this._settings}>
+            <i className="fa fa-cog" aria-hidden="true"></i>
+          </button>&nbsp;| &nbsp;
+          <button onClick={this._logout}>
+            <i className="fa fa-sign-out" aria-hidden="true"></i>
+          </button>&nbsp;
         </div>
       </div>
     );

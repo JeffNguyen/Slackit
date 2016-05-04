@@ -28,7 +28,12 @@ var ClientActions = {
 
   fetchStream: function(stream) {
     ServerActions.receiveSingleStream(stream);
+  },
+
+  activateStream: function() {
+    ServerActions.receiveRedditRequest();
   }
+
 };
 
 module.exports = ClientActions;

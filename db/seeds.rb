@@ -9,11 +9,11 @@
 ActiveRecord::Base.transaction do
   User.create!(email: 'user@email.com', password: 'password')
 
-  Channel.create!(name: 'ALL', public: true, message: false);
-  Channel.create!(name: 'NBA', public: true, message: false);
-  Channel.create!(name: 'MLB', public: true, message: false);
-  Channel.create!(name: 'POLITICS', public: true, message: false);
-  Channel.create!(name: 'MOVIES', public: true, message: false);
+  Channel.create!(name: 'ALL', public: true, message: false)
+  Channel.create!(name: 'NBA', public: true, message: false)
+  Channel.create!(name: 'MLB', public: true, message: false)
+  Channel.create!(name: 'POLITICS', public: true, message: false)
+  Channel.create!(name: 'MOVIES', public: true, message: false)
 
   ChannelUser.create!(channel_id: 1, user_id: 1)
   ChannelUser.create!(channel_id: 2, user_id: 1)
@@ -34,7 +34,7 @@ ActiveRecord::Base.transaction do
     ChannelUser.create!(channel_id: 5, user_id: t+2)
   end
 
-  Message.create!(text: 'Testing global', user_id: 1, channel_id: 1);
+  Message.create!(text: 'Testing global', user_id: 1, channel_id: 1)
   Message.create!(text: 'Testing basketball', user_id: 2, channel_id: 2)
   Message.create!(text: 'Testing baseball', user_id: 3, channel_id: 3)
   Message.create!(text: 'Testing politics', user_id: 4, channel_id: 4)

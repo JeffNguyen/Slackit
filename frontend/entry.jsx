@@ -13,8 +13,21 @@ var HeaderView = require('./components/headerView');
 var StreamView = require('./components/streamView');
 
 var ChannelIndexItem = require('./components/channelIndexItem');
+var StreamStore = require('./stores/stream_store');
 
 var App = React.createClass({
+
+  getInitialState: function(){
+    return({streamOpen: false});
+  },
+
+  componentWillMount: function(){
+    this.redditListener = StreamStore.addListener(this._redditRequestChanged);
+  },
+
+  _redditRequestChanged: function(){
+    this.setState({streamOpen: StreamStore.request()});
+  },
 
   // componentWillMount: function() {
   //   // later can also check if the id parameter given is not in the allowed list of channels,
@@ -32,19 +45,29 @@ var App = React.createClass({
   // it will tell child components how to render their information in the flux architecture
   // the channelId is integral to get everything else working
   render: function() {
+    console.log('render');
     var id;
     if (this.props.params.id === undefined){
       id = 1;
     } else {
       id = this.props.params.id;
     }
+
+    var stream;
+    if (this.state.streamOpen){
+      stream = <StreamView />
+    } else {
+      
+    }
+    console.log(stream);
+
     return (
       <div className= 'global-container'>
         <HeaderView />
         <div className="wrapper">
           <MessageView channelId={id}/>
           <ChannelView channelId={id}/>
-          <StreamView />
+          {stream}
         </div>
         {this.props.children}
       </div>

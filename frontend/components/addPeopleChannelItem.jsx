@@ -34,6 +34,7 @@ var AddPeopleChannelItem = React.createClass({
     var object = {id: this.props.channelId, email: email}
 
     ClientActions.createChannelUser(object);
+    this.setState({modalOpen: false});
 
   },
 

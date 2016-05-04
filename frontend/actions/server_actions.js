@@ -46,6 +46,12 @@ var ServerActions = {
         stream: stream
       })
     }, 1);
+  },
+
+  receiveRedditRequest: function(){
+    Dispatcher.dispatch({
+      actionType: StreamConstants.REDDIT_REQUEST_RECEIVED
+    })
   }
 };
 
