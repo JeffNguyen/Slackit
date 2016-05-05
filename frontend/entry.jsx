@@ -45,7 +45,6 @@ var App = React.createClass({
   // it will tell child components how to render their information in the flux architecture
   // the channelId is integral to get everything else working
   render: function() {
-    console.log('render');
     var id;
     if (this.props.params.id === undefined){
       id = 1;
@@ -58,8 +57,7 @@ var App = React.createClass({
       stream = <StreamView />
     } else {
       
-    }
-    console.log(stream);
+    } 
 
     return (
       <div className= 'global-container'>

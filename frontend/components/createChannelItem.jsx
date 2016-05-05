@@ -32,16 +32,12 @@ var CreateChannelItem = React.createClass({
     this.setState({modalOpen: false});
   },
 
-  autoFocus: function(){
-    setTimeout(function(){
-      this.refs.channelInput.focus();
-    }.bind(this), 0)
-  },
-
   render: function(){
     return (
-      <div className='create-channel-item'>
-        <button onClick={this._handleClick}>Create Channel</button>
+      <div className='create-channel-container'>
+        <div className='create-channel-header'>
+          Channel<button className='create-channel-button' onClick={this._handleClick}><i className="fa fa-plus-circle" aria-hidden="true"></i></button>
+        </div>
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this._handleClose}

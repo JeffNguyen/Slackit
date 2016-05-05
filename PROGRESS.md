@@ -38,16 +38,15 @@ React Router is really powerful with ReactJS. I was trying to pass around ids an
 
 Way to solve it was to actually set up react router - so since my page is a single chat interface - I rendered based on '/' or '/:id' and I passed that id (or a default one) as a prop to the children of my parent global component (which is App). The children are all the main components underneath it (ChannelView, HeaderView, FooterView, MessageView, StreamView). Since the channelView and messageView are siblings, I simply passed the props.channelId to both of them, so they both have reference to the :id in the 'url' - so they will always be on the same page. I just have to trigger the listener in messageView based on channel click so the messagelist will update. Since the url will be always the same, I can create actions based on the channelView which will associate with the messageView and anything else on the page.
 
+
+
+
+
 TODO: Hardcore a sleep timer which allows all the components to load through the flux architecture -
 based on the sleep timer, show a javascript/css spinner or something and then when the time is gone,
 remove the css timer
 
 TODO: Remove foundation and not have project break completely
-
-TODO: Ask about header padding weirdness and how it pushes off.
-TODO: Ask about fixing the width sizing of selected channels that are private vs public. public channels are larger since there is no '+' button.
-
-
 
 To pass information from child to parent - the parent needs to pass a callback and the child will
 execute the callback and send it back to the parent

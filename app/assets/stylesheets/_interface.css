@@ -2,7 +2,7 @@
 /* http://muaz-khan.github.io/Everything/CSS3/scroll-bar/ */
 /* scrollbar doesn't work in firefox */
 html {
-  overflow: scroll;
+  overflow-y: scroll;
   overflow-y: hidden;
 }
 
@@ -31,12 +31,13 @@ html {
   
   font-weight: bold;
   text-align: center;
-  height: 93%;
+  height: 100%;
   width: 100%;
+  padding-top: 53px;
 }
 
 .wrapper > * {
-  padding: 10px;
+  /*padding: 10px;*/
   flex: 1 100%;
 }
 
@@ -57,7 +58,7 @@ html {
 
 .aside-2 {
   background: #f3f0eb;
-  overflow-y: scroll;
+  overflow-y: auto;
   flex: 1;
 }
 

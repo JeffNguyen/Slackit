@@ -4,7 +4,7 @@ var ChannelConstants = require('../constants/channel_constants');
 var ChannelStore = new Store(Dispatcher);
 
 var _channels = {};
-var current_channel = [];
+var current_channel = {};
 
 ChannelStore.__onDispatch = function(payload){
   switch(payload.actionType) {
@@ -30,9 +30,11 @@ ChannelStore.all = function(){
 };
 
 ChannelStore.currentChannel = function(){
-  var curr = [];
-  curr.push(current_channel[0]);
-  return curr.slice();
+  var curr = {};
+  for (var k in current_channel) {
+    curr[k] = current_channel[k];
+  }
+  return curr;
 }
 
 var addChannel = function(channel){

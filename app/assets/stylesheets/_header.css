@@ -1,15 +1,26 @@
 .chat-header {
   background: #4d394b;
-  height: 7%;
+  height: 53px;
   color: white;
   font-weight: bold;
-  padding: 10px;
+  position: absolute;
+  width: 100%;
+}
+
+.chat-header:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .chat-header .header-left {
+  padding: .7rem 0 0;
+  padding-left: 15px;
   float: left;
 }
 
 .chat-header .header-right {
+  padding: .7rem 0 0;
+  padding-right: 15px;
   float: right;
 }

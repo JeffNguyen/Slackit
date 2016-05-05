@@ -1,9 +1,10 @@
-.channel-container {
-  width: 100%;
-}
+/* to remove sticky to left 
+  change channel container to 100% width and no float
+  have channel-selected, unselected be width of 75% */
 
-.create-channel-item {
-  width: 100%;
+.channel-container {
+  width: 90%;
+  float: left;
 }
 
 div[class^='channel-selected']{
@@ -17,7 +18,7 @@ div[class^='channel-unselected']{
 
 .channel-selected {
   background: #ed8928;
-  width: 75%;
+  width: 100%;
   display: inline-block;
   text-align: left;
   border-radius: 0 100px 100px 0;
@@ -25,11 +26,33 @@ div[class^='channel-unselected']{
 
 .channel-unselected {
   display: inline-block;
-  width: 75%;
+  width: 100%;
   text-align: left;
 }
 
 .add-people-button {
-  display: inline-block;
-  width: 10%;
+  padding-right: 25px;
+  float: right;
 }
+
+.channel-name {
+  padding-left: 25px;
+  outline: none;
+}
+
+.create-channel-container {
+  width: 90%;
+  text-align: left;
+}
+
+/* the padding is 30 because the channel-selected/unselected is 25+5 from div CLASS above */
+.create-channel-header {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+.create-channel-button {
+  padding-right: 25px;
+  float: right;
+}
+/* TEXT OVERFLOW OF CHANNEL TODO */

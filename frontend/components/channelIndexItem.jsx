@@ -16,39 +16,45 @@ var ChannelIndexItem = React.createClass({
     ClientActions.fetchAllMessages(this.props.channel.id);
 
     // to update the store for currentChannel which will update the addPeople icon in header
-    // ClientActions.fetchSingleChannel(this.props.channel.id);
+    ClientActions.fetchSingleChannel(this.props.channel.id);
     // ClientActions.fetchStream(this.props.channel.name.toLowerCase());
   },
 
   render: function() {
 
     var identifier;
+    var addPeople;
     if (parseInt(this.props.channelId) === this.props.channel.id){
       identifier = 'channel-selected';
+      addPeople = <AddPeopleChannelItem channelId={this.props.channelId} />
     } else {
       identifier = 'channel-unselected';
     }
 
     var list;
 
+    var divStyle = {
+      cursor: 'pointer'
+    };
+
     if (this.props.channel.public){
       list =  
-        <div className='channel-item'>
-          <div className={identifier} >       
-            <button onClick={this._setUrl}>
+        <div >
+          <div style= {divStyle} onClick={this._setUrl} className={identifier} >       
+            <button className='channel-name'>
               {this.props.channel.name}
             </button>
           </div>
         </div>
     } else {
       list =
-        <div className='channel-item'>
-          <div className={identifier}>
-            <button  onClick={this._setUrl}>
+        <div >
+          <div style= {divStyle} onClick={this._setUrl} className={identifier}>
+            <button className='channel-name'>
               {this.props.channel.name}
             </button> &nbsp;
+            {addPeople}
           </div>
-          <AddPeopleChannelItem channelId={this.props.channel.id} />
         </div>
     }
 
