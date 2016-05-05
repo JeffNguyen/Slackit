@@ -1,7 +1,7 @@
 body {
   /*padding: 10px;*/
 }
-.chat {
+#chat {
   overflow-y: scroll;
   border: 1px solid;
   margin: 3%;
@@ -23,6 +23,7 @@ body {
   -moz-outline-radius: 3px;
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  word-wrap: break-word;
 }
 
 .input-message:focus {

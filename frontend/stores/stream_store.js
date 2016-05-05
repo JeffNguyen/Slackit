@@ -24,13 +24,13 @@ StreamStore.currentStream = function(){
   return stream;
 };
 
-StreamStore.request = function(){
-  return request;
-};
-
 var resetStream = function(stream){
   _stream = [];
   _stream.push(stream);
+};
+
+StreamStore.request = function(){
+  return request;
 };
 
 var setRedditRequest = function(){
@@ -42,5 +42,3 @@ var setRedditRequest = function(){
 }
 
 module.exports = StreamStore;
-
-// bug with ALL

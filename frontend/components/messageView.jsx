@@ -2,7 +2,6 @@
 var React = require('react');
 var MessageList = require('./messageList');
 var ClientActions = require('../actions/client_actions');
-var ChannelStore = require('../stores/channel_store');
 var MessageStore = require('../stores/message_store');
 
 // A user listening to other messages in the channel will only render once - in the chatroom.bind
@@ -37,16 +36,12 @@ var MessageView = React.createClass({
 
     // using refs to use "autofocus" feature because it is not supported in react through traditional html way
     this.refs.messageInput.focus();
-
-  },
-
-  componentWillReceiveProps: function() {
-    // to handle receiving props through router
-    // ClientActions.fetchAllMessages(this.props.channelId);
   },
 
   _messagesChanged: function() {
+    // $('#chat').scrollTop($('#chat')[0].scrollHeight);
     this.setState({messages: MessageStore.all()});
+    $('#chat').scrollTop($('#chat')[0].scrollHeight);
   },
 
   _onMessage: function(e){
@@ -76,5 +71,6 @@ var MessageView = React.createClass({
     );
   }
 });
+
 
 module.exports = MessageView;

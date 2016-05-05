@@ -2,62 +2,80 @@ var React = require('react');
 var ClientActions = require('../actions/client_actions');
 var StreamStore = require('../stores/stream_store');
 var StreamIndexItem = require('./streamIndexItem');
+var ChannelStore = require('../stores/channel_store');
 
 var StreamView = React.createClass({
 
   getInitialState: function(){
     return (
-      {stream: 'all', content: [{title: '', url:''}]}
+      {
+        content: [{title: '', url:''}], 
+        subreddit: ''
+      }
     );
   },
 
-  // componentWillMount: function() {
-  //   this.pusher = new Pusher('50ed18dd967b455393ed');
+  componentWillMount: function(){
+    this.pusher = new Pusher('50ed18dd967b455393ed');
+  },
 
-  //   this.subredditChannel = this.pusher.subscribe('askreddit');
+  componentDidMount: function() {
+    this.addChannelListener = ChannelStore.addListener(this._channelUpdated);
+    ClientActions.fetchSingleChannel(this.props.channelId);
+  },
 
-  //   // this.streamListener = StreamStore.addListener(this._streamChanged);
+  _channelUpdated: function(){
+    // callback happens when the reddit Alien is clicked (which mounts the component)
+    // OR when a new channel is clicked on the left pane
 
-  //   this.subredditChannel.bind('pusher:subscription_succeeded', function(){
-  //     console.log('successful reddit subscription');
-  //   }, this);
-  // },
+    // if it was originally mounted - there is nothing to unsubscribe to - so u check for
+    // length is 0
 
-  // componentDidMount: function() {
-  //   this.subredditChannel.bind('new-listing', function(listing){
-  //     // this.streamListener = StreamStore.addListener(this._streamChanged);
-  //     // ClientActions.fetchAllStreams()
-  //     console.log(listing);
-  //     this.setState(
-  //       {content: this.state.content.concat([{title: listing.title, url: listing.url}])});
-  //   }, this)
-  // },
+    // otherwise you unsubscribe and unbind the channel
 
-  // _streamChanged: function(){
-  //   // this.subredditChannel = this.pusher.subscribe(StreamStore.currentStream());
+    var current_channel = ChannelStore.currentChannel();
+    var subredditName = current_channel[0].name.toLowerCase();
 
-  //   this.setState({stream: StreamStore.currentStream()});
-  //   // console.log(this.state.stream);
-  // },
+    // if subreddit length 0 - then base case, no binding removal needed
+    if (this.state.subreddit.length === 0){
+
+    } else {
+      // if you clicked on a new channel - clear the previous content of the stream
+      // otherwise keep it
+
+      // still unclear
+      if (this.state.subreddit !== subredditName){
+        this.state.content = [{title: '', url: ''}];
+      }
+
+      this.pusher.unsubscribe(this.state.subreddit);
+      this.subredditChannel.unbind('new-listing', this._callback);
+    }
+
+    this.state.subreddit = subredditName;
+    
+    this.subredditChannel = this.pusher.subscribe(subredditName);
+
+    this.subredditChannel.bind('new-listing', this._callback, this);
+  },
+
+  _callback: function(listing){
+    this.setState({content: this.state.content.concat([{title: listing.title, url: listing.url}])});
+  },
 
   render: function() {
-    // return (
-    //   <div className = 'aside aside-2'>
-    //     ASKREDDIT STREAM
-    //      {this.state.content.map(function(content, index){
-    //       return (
-    //         <StreamIndexItem content={content}/>
-    //       )
-    //     }.bind(this))
-    //   }
-    //   </div>
-    // );
-
     return (
       <div className = 'aside aside-2'>
-        ASKREDDIT STREAM
+        STREAMING ...
+         {this.state.content.map(function(content, index){
+          return (
+            <StreamIndexItem content={content}/>
+          )
+        }.bind(this))
+      }
       </div>
     );
+
   }
 });
 

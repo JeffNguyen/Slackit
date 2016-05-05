@@ -2,7 +2,6 @@ var React = require('react');
 var ChannelIndexItem = require('./channelIndexItem');
 var ClientActions = require('../actions/client_actions');
 var ChannelStore = require('../stores/channel_store');
-var MessageStore = require('../stores/message_store');
 var hashHistory = require('react-router').hashHistory;
 var CreateChannelItem = require('./createChannelItem');
 

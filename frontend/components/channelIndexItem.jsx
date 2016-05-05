@@ -1,6 +1,5 @@
 var React = require('react');
 var ClientActions = require('../actions/client_actions');
-var MessageStore = require('../stores/message_store');
 var ChannelStore = require('../stores/channel_store');
 var hashHistory = require('react-router').hashHistory
 var AddPeopleChannelItem = require('./addPeopleChannelItem');
@@ -14,10 +13,6 @@ var ChannelIndexItem = React.createClass({
     // I also need to also call fetch messages on the new channel id, this will activate
     // the established listener in the messageView.jsx based on flux architecture
     ClientActions.fetchAllMessages(this.props.channel.id);
-
-    // to update the store for currentChannel which will update the addPeople icon in header
-    ClientActions.fetchSingleChannel(this.props.channel.id);
-    // ClientActions.fetchStream(this.props.channel.name.toLowerCase());
   },
 
   render: function() {

@@ -5,7 +5,7 @@ var MessageList = React.createClass({
   componentWillMount: function() {
     this.sign_in_count = window.current_user.sign_in_count;
   },
-
+  
   render: function() {
     var list;
 
@@ -35,7 +35,7 @@ var MessageList = React.createClass({
     }); 
 
     return (
-      <div className="chat">
+      <div id="chat">
         {list}
       </div>
     );

@@ -54,14 +54,14 @@ var App = React.createClass({
 
     var stream;
     if (this.state.streamOpen){
-      stream = <StreamView />
+      stream = <StreamView channelId={id}/>
     } else {
       
     } 
 
     return (
       <div className= 'global-container'>
-        <HeaderView />
+        <HeaderView channelId={id}/>
         <div className="wrapper">
           <MessageView channelId={id}/>
           <ChannelView channelId={id}/>
