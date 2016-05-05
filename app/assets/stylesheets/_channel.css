@@ -55,4 +55,9 @@ div[class^='channel-unselected']{
   padding-right: 25px;
   float: right;
 }
+
+/* pads the '+' icon to be level with Channel text */
+.fa {
+  padding-top: 4px;
+}
 /* TEXT OVERFLOW OF CHANNEL TODO */

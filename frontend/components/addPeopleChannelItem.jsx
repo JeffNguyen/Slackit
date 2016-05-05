@@ -54,6 +54,12 @@ var AddPeopleChannelItem = React.createClass({
 
   },
 
+  // initially renders that public is true or undefined, does't matter because it will render
+  // appropriately when callback is executed in channelStore
+
+  // to avoid the initial render - we can add third state that will track if the callback
+  // has been received - if not render nothing until it returns back
+
   render: function(){
     var addPeopleButton;
 

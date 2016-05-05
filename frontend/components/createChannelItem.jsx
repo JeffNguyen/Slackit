@@ -36,7 +36,7 @@ var CreateChannelItem = React.createClass({
     return (
       <div className='create-channel-container'>
         <div className='create-channel-header'>
-          Channel<button className='create-channel-button' onClick={this._handleClick}><i className="fa fa-plus-circle" aria-hidden="true"></i></button>
+          CHANNELS<button className='create-channel-button' onClick={this._handleClick}><i className="fa fa-plus-circle fa-lg" aria-hidden="true"></i></button>
         </div>
         <Modal
           isOpen={this.state.modalOpen}

@@ -50,3 +50,5 @@ TODO: Remove foundation and not have project break completely
 
 To pass information from child to parent - the parent needs to pass a callback and the child will
 execute the callback and send it back to the parent
+
+text http://codepen.io/Thibaut/pen/CiDkc

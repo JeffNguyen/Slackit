@@ -43,16 +43,16 @@ var HeaderView = React.createClass({
           SLACKIT
         </div>
         <div className='header-right'>
-          {this.state.username}&nbsp; | &nbsp;
+          {this.state.username}&nbsp; &nbsp; | &nbsp; &nbsp;
           <button onClick={this._redditStream}>
-            <i className="fa fa-reddit-alien" aria-hidden="true"></i>
-          </button>&nbsp; | &nbsp;
+            <i className="fa fa-reddit-alien fa-lg" aria-hidden="true"></i>
+          </button>&nbsp; &nbsp; | &nbsp; &nbsp;
           <button onClick={this._settings}>
-            <i className="fa fa-cog" aria-hidden="true"></i>
-          </button>&nbsp;| &nbsp;
+            <i className="fa fa-cog fa-lg" aria-hidden="true"></i>
+          </button>&nbsp; &nbsp;| &nbsp; &nbsp;
           <button onClick={this._logout}>
-            <i className="fa fa-sign-out" aria-hidden="true"></i>
-          </button>&nbsp;
+            <i className="fa fa-sign-out fa-lg" aria-hidden="true"></i>
+          </button>&nbsp; &nbsp;
         </div>
       </div>
     );

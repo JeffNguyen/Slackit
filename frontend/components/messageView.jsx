@@ -71,7 +71,7 @@ var MessageView = React.createClass({
     return (
       <div className='main'>
         <MessageList messages={this.state.messages} /> 
-        <input placeholder="Type your message" onKeyPress={this._onMessage} ref="messageInput" className='input-message'/>
+        <input placeholder="" onKeyPress={this._onMessage} ref="messageInput" className='input-message'/>
       </div>
     );
   }
