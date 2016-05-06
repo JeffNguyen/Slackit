@@ -71,9 +71,10 @@ body {
 }*/
 
 @media all and (min-width: 800px) {
-  .aside-1 { order: 1; flex: 3; height: 100%;} 
-  .main    { order: 2;   flex: 12; height: 100%;}
-  .aside-2 { order: 3;   flex: 5; height: 100%;}
+  .chat-header {order: 1; flex: 1; height: 100%;}
+  .aside-1 { order: 2; flex: 3; height: 100%;} 
+  .main    { order: 3;   flex: 12; height: 100%;}
+  .aside-2 { order: 4;   flex: 5; height: 100%;}
   .wrapper {flex-direction: row;}
 }
 
