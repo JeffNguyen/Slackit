@@ -9,11 +9,11 @@ module.exports = {
   },
   content : {
     position                   : 'absolute',
-    top                        : '40px',
-    left                       : '40px',
-    right                      : '40px',
-    bottom                     : '40px',
-    border                     : '1px solid #ccc',
+    top                        : '40%',
+    left                       : '40%',
+    right                      : '40%',
+    bottom                     : '40%',
+    border                     : '2px solid #ed8928',
     background                 : '#fff',
     overflow                   : 'auto',
     WebkitOverflowScrolling    : 'touch',
@@ -21,6 +21,6 @@ module.exports = {
     outline                    : 'none',
     padding                    : '20px',
     opacity                    : '0',
-    transition                 : 'opacity 1s'
-  }
+    transition                 : 'opacity 1s',
+  },
 }

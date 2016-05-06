@@ -30,11 +30,6 @@ div[class^='channel-unselected']{
   text-align: left;
 }
 
-.add-people-button {
-  padding-right: 25px;
-  float: right;
-}
-
 .channel-name {
   padding-left: 25px;
   outline: none;
@@ -54,10 +49,66 @@ div[class^='channel-unselected']{
 .create-channel-button {
   padding-right: 25px;
   float: right;
+  outline: none;
 }
 
 /* pads the '+' icon to be level with Channel text */
 .fa {
   padding-top: 4px;
+}
+
+.create-channel-button {
+  outline: none;
+}
+
+#create-channel-input {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #ed8928;
+  /*border-color: #c4c4c4 #d1d1d1 #d4d4d4;*/
+  border-radius: 2px;
+  padding: 5px;
+  outline: none;
+}
+
+.create-channel-modal-submit {
+  float: left;
+  color: #4d394b;
+}
+
+.create-channel-modal-cancel {
+  float:right;
+  color: #4d394b;
+}
+
+.add-people-button {
+  padding-right: 25px;
+  float: right;
+}
+
+.add-people-button-outline {
+  outline: none;
+}
+
+#add-people-input {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #ed8928;
+  /*border-color: #c4c4c4 #d1d1d1 #d4d4d4;*/
+  border-radius: 2px;
+  padding: 5px;
+  outline: none;
+}
+
+.add-people-modal-submit {
+  float: left;
+  color: #4d394b;
+}
+
+.add-people-modal-cancel {
+  float: right;
+  color: #4d394b;
 }
 /* TEXT OVERFLOW OF CHANNEL TODO */

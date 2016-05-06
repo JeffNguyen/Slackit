@@ -133,7 +133,6 @@ html, body{
   color: #FF0000;
   position: relative;
   top: 55%;
-  /*font-weight: bold;*/
 }
 
 .alert {
@@ -141,6 +140,5 @@ html, body{
   color: #FF0000;
   position: relative;
   top: 60%;
-  /*font-weight: bold;*/
 }
 /* http://codepen.io/reidark/pen/uAmey */

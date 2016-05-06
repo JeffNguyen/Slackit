@@ -22,12 +22,19 @@ var CreateChannelItem = React.createClass({
     this.refs.channelInput.focus();
   },
 
-  handleSubmit: function(e){
+  handleEnterSubmit: function(e){
     if (e.nativeEvent.keyCode != 13) return;
     
     // message will determine if DM or private channel
     var name = e.currentTarget.value;
     var channel = {name: name, public: false, message: false};
+    ClientActions.createChannel(channel);
+    this.setState({modalOpen: false});
+  },
+
+  handleButtonSubmit: function(){
+    var input = document.getElementById('create-channel-input');
+    var channel = {name: input.value, public: false, message: false};
     ClientActions.createChannel(channel);
     this.setState({modalOpen: false});
   },
@@ -44,8 +51,10 @@ var CreateChannelItem = React.createClass({
           style={ModalStyle}
           onAfterOpen={this._handleOpen}>
             
-          <input onKeyPress={this.handleSubmit} placeholder='Create Channel' ref='channelInput'/><br/>
-          <button onClick={this._handleClose}>Cancel</button>
+          <input id='create-channel-input' onKeyPress={this.handleEnterSubmit} placeholder='Create Channel' ref='channelInput'/><br/>
+          <button className='create-channel-modal-submit' onClick={this.handleButtonSubmit}>Submit</button>
+          <button className='create-channel-modal-cancel' onClick={this._handleClose}>Cancel</button>
+
 
         </Modal>
       </div>

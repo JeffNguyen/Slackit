@@ -40,10 +40,10 @@ var AddPeopleChannelItem = React.createClass({
 
   _handleOpen: function(){
     ModalStyle.content.opacity = 100;
-    this.refs.channelInput.focus();
+    this.refs.personInput.focus();
   },
 
-  _handleSubmit: function(e){
+  handleEnterSubmit: function(e){
     if (e.nativeEvent.keyCode != 13) return;
 
     var email = e.currentTarget.value;
@@ -52,6 +52,13 @@ var AddPeopleChannelItem = React.createClass({
     ClientActions.createChannelUser(object);
     this.setState({modalOpen: false});
 
+  },
+
+  handleButtonSubmit: function() {
+    var input = document.getElementById('add-people-input');
+    var object = {id: this.props.channelId, email: input.value};
+    ClientActions.createChannelUser(object);
+    this.setState({modalOpen: false});
   },
 
   // initially renders that public is true or undefined, does't matter because it will render
@@ -68,7 +75,7 @@ var AddPeopleChannelItem = React.createClass({
     } else {
       addPeopleButton = 
         <div>
-          <button type='button' onClick={this._handleClick}><i className="fa fa-user-plus" aria-hidden="true"></i></button>
+          <button className='add-people-button-outline' type='button' onClick={this._handleClick}><i className="fa fa-user-plus" aria-hidden="true"></i></button>
 
           <Modal
             isOpen={this.state.modalOpen}
@@ -76,8 +83,9 @@ var AddPeopleChannelItem = React.createClass({
             style={ModalStyle}
             onAfterOpen={this._handleOpen}>
 
-            <input onKeyPress={this._handleSubmit} placeholder='Enter email of person to invite' ref='channelInput'/> &nbsp;
-            <button onClick={this._handleClose}>Cancel</button><br/><br/>
+            <input id='add-people-input' onKeyPress={this.handleEnterSubmit} placeholder='Enter email to invite' ref='personInput'/><br/>
+            <button className='add-people-modal-submit' onClick={this.handleButtonSubmit}>Submit</button>
+            <button className='add-people-modal-cancel' onClick={this._handleClose}>Cancel</button>
 
           </Modal>
         </div>

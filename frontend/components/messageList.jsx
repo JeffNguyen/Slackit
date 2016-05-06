@@ -25,14 +25,45 @@ var MessageList = React.createClass({
     //     );
     //   });
     // }
+    var prevMessage;
+    // list = this.props.messages.map(function(message, index){
+    //   if (index === 0){
+    //     prevMessage = message
+    //     return  (
+    //       <div key={message.id} className='message-item'>
+    //         <div>{message.username} <div className='message-time'>{message.time}</div></div>
+    //         <div className='message-text'>{message.text}</div>
+    //       </div>
+    //     );
+    //   } else {
+    //     // if previous message time is equal to current message time and previous message user is equal to current message user
+    //     if (prevMessage.time === message.time && prevMessage.email === message.email){
+    //       return  (
+    //         <div key={message.id} className='message-item'>
+    //           <div className='message-text'>{message.text}</div>
+    //         </div>
+    //       );          
+    //     }
+    //     else {
+    //       prevMessage = message;
+    //       return  (
+    //         <div key={message.id} className='message-item'>
+    //           <div>{message.username} <div className='message-time'>{message.time}</div></div>
+    //           <div className='message-text'>{message.text}</div>
+    //         </div>
+    //       );          
+    //     }
+    //   }
+    // }); 
 
-    list = this.props.messages.map(function(message){
-      return  (
-        <div key={message.id} className='message-item'>
-          <b>{message.username}</b>: {message.text}
-        </div>
-      );
-    }); 
+    list = this.props.messages.map(function(message, index){
+          return  (
+            <div key={message.id} className='message-item'>
+              <div>{message.username} <div className='message-time'>{message.time}</div></div>
+              <div className='message-text'>{message.text}</div>
+            </div>
+          );          
+        }); 
 
     return (
       <div id="chat">

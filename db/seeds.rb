@@ -7,7 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ActiveRecord::Base.transaction do
-  User.create!(username: 'Jeffrey Nguyen', email: 'user@email.com', password: 'password')
+
+  User.create(username: 'Jeffrey Nguyen', email: 'user@email.com', password: 'password')
+
 
   Channel.create!(name: 'nba', public: true, message: false)
   Channel.create!(name: 'soccer', public: true, message: false)
@@ -27,6 +29,7 @@ ActiveRecord::Base.transaction do
     password = Faker::Internet.password
 
     User.create!(username: username, email: email, password: password)
+
     ChannelUser.create!(channel_id: 1, user_id: t+2)
     ChannelUser.create!(channel_id: 2, user_id: t+2)
     ChannelUser.create!(channel_id: 3, user_id: t+2)

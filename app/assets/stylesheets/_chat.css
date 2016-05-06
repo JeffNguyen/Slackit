@@ -3,7 +3,7 @@ body {
 }
 #chat {
   overflow-y: scroll;
-  border: 1px solid;
+  /*border: 1px solid;*/
   margin: 3%;
   flex: 100;
   word-wrap: break-word;
@@ -35,4 +35,18 @@ body {
 
 .message-item {
   padding: 5px;
+}
+
+.message-text {
+  font-size: .9375rem;
+  line-height: 1.375rem;
+  margin-top: -2px;
+  /*display: inline-block;*/
+}
+
+.message-time {
+  display: inline-block;
+  font-weight: 100;
+  color: #9e9ea6;
+  font
 }
