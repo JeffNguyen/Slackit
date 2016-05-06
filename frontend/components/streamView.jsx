@@ -36,6 +36,8 @@ var StreamView = React.createClass({
     var current_channel = ChannelStore.currentChannel();
     var subredditName = current_channel[0].name.toLowerCase();
 
+    console.log(subredditName);
+
     // if subreddit length 0 - then base case, no binding removal needed
     if (this.state.subreddit.length === 0){
 

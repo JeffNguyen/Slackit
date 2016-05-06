@@ -13,6 +13,8 @@ var ChannelIndexItem = React.createClass({
     // I also need to also call fetch messages on the new channel id, this will activate
     // the established listener in the messageView.jsx based on flux architecture
     ClientActions.fetchAllMessages(this.props.channel.id);
+
+    ClientActions.fetchSingleChannel(this.props.channel.id);
   },
 
   render: function() {
