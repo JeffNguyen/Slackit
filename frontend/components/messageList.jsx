@@ -29,7 +29,7 @@ var MessageList = React.createClass({
     list = this.props.messages.map(function(message){
       return  (
         <div key={message.id} className='message-item'>
-          <b>{message.email}</b>: {message.text}
+          <b>{message.username}</b>: {message.text}
         </div>
       );
     }); 

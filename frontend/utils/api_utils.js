@@ -23,6 +23,7 @@ var ApiUtil = {
       dataType: 'json',
       data: {channel_id: id},
       success: function (messages) {
+        console.log(messages);
         ServerActions.receiveMessages(messages);
       }
     });
