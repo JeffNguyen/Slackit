@@ -22,11 +22,11 @@ ActiveRecord::Base.transaction do
   ChannelUser.create!(channel_id: 5, user_id: 1)
 
   5.times do |t|
-    name = Faker::name
+    username = Faker::Name.name
     email = Faker::Internet.email
     password = Faker::Internet.password
 
-    User.create!(username: name, email: email, password: password)
+    User.create!(username: username, email: email, password: password)
     ChannelUser.create!(channel_id: 1, user_id: t+2)
     ChannelUser.create!(channel_id: 2, user_id: t+2)
     ChannelUser.create!(channel_id: 3, user_id: t+2)
