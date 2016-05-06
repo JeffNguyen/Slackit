@@ -78,7 +78,7 @@ html, body{
       padding: 10px 5px 10px 10px;
       outline: 0;
       border-color: #ed8928;
-      transition: 0.2s ease-in-out;
+      transition: 0.2s ease-in;
     }
   }
 }
@@ -120,6 +120,27 @@ html, body{
   position: absolute;
   top: 20px;
   right: 100px;
-  color: #ed8928;;
+  color: #ed8928;
+  cursor: pointer;
+}
+
+.guest:hover{
+  color: #2199e8;
+}
+
+#error_explanation{
+  text-align: center;
+  color: #FF0000;
+  position: relative;
+  top: 55%;
+  /*font-weight: bold;*/
+}
+
+.alert {
+  text-align: center;
+  color: #FF0000;
+  position: relative;
+  top: 60%;
+  /*font-weight: bold;*/
 }
 /* http://codepen.io/reidark/pen/uAmey */

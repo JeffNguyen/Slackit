@@ -21,7 +21,7 @@
         id: '<%= current_user.id if current_user %>',
         username: '<%= current_user.username if current_user %>',
         sign_in_count: '<%= current_user.sign_in_count if current_user %>'
-    }
+      }
     </script>
 
     <%= yield %>
@@ -29,6 +29,37 @@
     <p class="alert"><%= alert %></p>
 
     <script>
+      // https://github.com/plataformatec/devise/wiki/How-To:-Create-a-guest-user
+      $('.guest').click(function() {
+        username = 'anon' + '<%= Faker::Number.number(5) %>';
+        email = '<%= Faker::Internet.email('Guest') %>';
+        console.log(email);
+        password = 'password';
+
+        var email_input = $('#email');
+        var password_input = $('#password');
+        email_input.val(email);
+        password_input.val(password);
+
+        $.ajax({
+          url: '/users',
+          method: 'POST',
+          dataType: 'json',
+          data: {user: 
+            {username: username, 
+             email: email,
+             password: password,
+             password_confirmation: password
+            }
+           },
+           success: function(){
+
+           }
+        });
+
+        $('.submit').click();
+      });
+
       $( ".input" ).focusin(function() {
         $( this ).find( "span" ).animate({"opacity":"0"}, 200);
       });

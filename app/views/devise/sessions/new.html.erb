@@ -6,12 +6,12 @@
       <legend class="legend">SLACKIT</legend>
 
       <div class="input">
-        <%= f.email_field :email, autofocus: true, placeholder: "Email"%>
+        <%= f.email_field :email, autofocus: true, placeholder: "Email", id: 'email'%>
         <span class="email-span"><i class="fa fa-envelope-o"></i></span>
       </div>
 
       <div class="input">
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Password", id: 'password' %>
         <span><i class="fa fa-lock"></i></span>
       </div>
 
@@ -24,7 +24,7 @@
     </fieldset>
 
   <% end %>
-  <%= link_to "Guest", new_registration_path(resource_name), class: 'guest' %>
+  <div class='guest'>Guest</div>
   <%= link_to "Sign up", new_registration_path(resource_name), class: 'sign-up' %>
   
   <%= devise_error_messages! %>
