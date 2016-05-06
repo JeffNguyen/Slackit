@@ -64,6 +64,7 @@ var StreamView = React.createClass({
   },
 
   render: function() {
+    // TODO: Put 'no new posts!' if content is empty
     return (
       <div className = 'aside aside-2'>
         STREAMING ...

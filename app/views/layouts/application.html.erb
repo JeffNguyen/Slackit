@@ -23,9 +23,20 @@
         sign_in_count: '<%= current_user.sign_in_count if current_user %>'
     }
     </script>
+    
     <%= yield %>
     <!--p class="notice"--><%#= notice %><!--/p-->
     <p class="alert"><%= alert %></p>
+
+    <script>
+      $( ".input" ).focusin(function() {
+        $( this ).find( "span" ).animate({"opacity":"0"}, 200);
+      });
+
+      $( ".input" ).focusout(function() {
+        $( this ).find( "span" ).animate({"opacity":"1"}, 300);
+      });
+    </script>
   </body>
 </html>
 
