@@ -52,3 +52,13 @@ To pass information from child to parent - the parent needs to pass a callback a
 execute the callback and send it back to the parent
 
 text http://codepen.io/Thibaut/pen/CiDkc
+
+
+REASON WHY I WAS LAGGING WHEN SCROLLING - DOUBLE RENDER
+
+unnecessary serverAction when I created a message - so I was sending a message to the
+messageStore which would trigger callbacks - (my fetchAllMessages would then get all 
+the messages, except the last message that was added didn't have email property or time
+because I didn't format it appropriately in jbuilder) - since I always call fetchAll
+after every new message, no need to do a server action on createMessage, pusher's subscription will trigger the fetchAllMessages which will always get the most up to date
+messages

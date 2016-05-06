@@ -7,9 +7,6 @@ var _messages = [];
 
 MessageStore.__onDispatch = function(payload){
   switch(payload.actionType) {
-    case MessageConstants.SINGLE_MESSAGE_RECEIVED:
-      createMessage(payload.message);
-      break;
     case MessageConstants.MESSAGES_RECEIVED:
       resetMessages(payload.messages, payload.id);
       break;
@@ -23,10 +20,6 @@ MessageStore.all = function(){
     messageArray.push(_messages[id]);
   }
   return messageArray.slice();
-};
-
-var createMessage = function(message){
-  _messages.push(message);
 };
 
 var resetMessages = function(messages){

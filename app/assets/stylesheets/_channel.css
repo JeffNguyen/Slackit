@@ -33,6 +33,7 @@ div[class^='channel-unselected']{
 .channel-name {
   padding-left: 25px;
   outline: none;
+  width: 175px;
 }
 
 .create-channel-container {
@@ -112,3 +113,11 @@ div[class^='channel-unselected']{
   color: #4d394b;
 }
 /* TEXT OVERFLOW OF CHANNEL TODO */
+
+.buttontext {
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}​

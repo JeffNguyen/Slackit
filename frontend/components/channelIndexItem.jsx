@@ -38,8 +38,8 @@ var ChannelIndexItem = React.createClass({
       list =  
         <div >
           <div style= {divStyle} onClick={this._setUrl} className={identifier} >       
-            <button className='channel-name'>
-              {this.props.channel.name}
+            <button className='channel-name'><div className='buttontext'>
+              {this.props.channel.name}</div>
             </button>
           </div>
         </div>
@@ -47,8 +47,8 @@ var ChannelIndexItem = React.createClass({
       list =
         <div >
           <div style= {divStyle} onClick={this._setUrl} className={identifier}>
-            <button className='channel-name'>
-              {this.props.channel.name}
+            <button className='channel-name'><div className='buttontext'>
+              {this.props.channel.name}</div>
             </button> &nbsp;
             {addPeople}
           </div>

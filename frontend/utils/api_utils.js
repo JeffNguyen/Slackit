@@ -9,7 +9,7 @@ var ApiUtil = {
       dataType: 'json',
       data: {message: data},
       success: function (message) {
-        ServerActions.receiveSingleMessage(message);
+        // ServerActions.receiveSingleMessage(message);
       }
     });
   },

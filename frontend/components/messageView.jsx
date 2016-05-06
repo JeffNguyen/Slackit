@@ -39,18 +39,21 @@ var MessageView = React.createClass({
   },
 
   _messagesChanged: function() {
-    this.setState({messages: MessageStore.all()});
+    this.setState({messages: MessageStore.all()}, function(){
+      $('#chat').scrollTop($('#chat')[0].scrollHeight);
+    });
     /*need a setTimeout because when grouping messages together based on the same user/time
       the jquery scroll scrolls down but not when all the messages are there */
     var chat = document.getElementById('chat');
-    if (chat.clientHeight <  chat.scrollHeight){
-      console.log('Overflowed');
-      setTimeout(function(){
-        $('#chat').scrollTop($('#chat')[0].scrollHeight);
-      }, 100);
-    } else {
-      console.log('No overflow');
-    }
+    // if (chat.clientHeight <  chat.scrollHeight){
+    //   console.log('Overflowed');
+    //   setTimeout(function(){
+    //     $('#chat').scrollTop($('#chat')[0].scrollHeight);
+    //   }, 100);
+    // } else {
+    //   console.log('No overflow');
+    // }
+    // $('#chat').scrollTop($('#chat')[0].scrollHeight);
   },
 
   _onMessage: function(e){
