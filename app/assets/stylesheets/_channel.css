@@ -33,7 +33,7 @@ div[class^='channel-unselected']{
 .channel-name {
   padding-left: 25px;
   outline: none;
-  width: 175px;
+  width: 100px;
 }
 
 .create-channel-container {
