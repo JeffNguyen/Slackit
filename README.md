@@ -1,116 +1,44 @@
 # Slackit
 
-[Heroku link][heroku]
+[Slackit live][heroku] **NB:** This should be a link to your production site
 
 [heroku]: http://slack-it.herokuapp.com
 
-## Minimum Viable Product
+Slackit is a full-stack web application inspired by Slack with built-in Reddit functionality. It is built with Ruby on Rails on the backend and React JS on the frontend. React is combined with the Flux architecture to handle scaleability and single-direction data flow.
 
-Slackit is a web chat application built on Rails and ReactJS  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+It consists of three core components. The channel component lists all the current channels the user is subscribed to. The chat component lists all the messages that correspond to the current channel. The stream component streams any new Reddit posts based on the channel name (if the channel name is an applicable subreddit).
 
-- [ ] New account creation, login, and guest/demo login
-- [ ] Smooth, bug-free navigation
-- [ ] Adequate seed data to demonstrate the site's features
-- [ ] The minimally necessary features for an Slack-inspired site: real time chat and channel participation amongst users
-- [ ] Hosting on Heroku
-- [ ] CSS styling that is satisfactorily visually appealing
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](https://github.com/appacademy/sample-project-proposal/blob/master/docs/production_readme.md) -- you'll write this later)
+## Features & Implementation
 
-## Product Goals and Priorities
+### Backend User Authentication
 
-Slackit will allow users to do the following:
+Slackit utilizes a Devise which is a standardized library for entry level authentication in web applications. It has all the necessary functions and validations to ensure a secure and consistent user experience. The password is hashed into a password token using BCrypt. The usual validations such as no duplicate emails, matching passwords, and minimum password length apply here. 
 
-<!-- This is a Markdown checklist. Use it to keep track of your
-progress. Put an x between the brackets for a checkmark: [x] -->
+There is also a guest feature - which will log you in as an anonymous user with full user functionality. This is to demo to users who do not want to create an account or wish to remain anonymous when using the application.
 
-- [ ] Create an account (MVP)
-- [ ] Log in / Log out, including as a Anonymous/Demo User (MVP)
-- [x] Create, read messages (MVP)
-- [ ] Join different channels (MVP)
-- [ ] OAuth Reddit integration - stream real time comments (expected feature, but not MVP)
-- [ ] OAuth Reddit integration - post to threads from within Slackit (expected feature, but not MVP)
+### Single-Page App (excluding authentication)
 
-## Design Docs
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
+Many industry chat apps rely on a single-page chat interface once the user creates an account or logs in. Slackit relies on this model to produce its own version of chat. As soon as the user is authenticated, either through account login, account creation, or guest login, the
+user will be sent to a root page which will be the starting point for rendering the frontend using ReactJS.
 
-[views]: ./docs/views.md
-[components]: ./docs/components.md
-[flux-cycles]: ./docs/flux-cycles.md
-[api-endpoints]: ./docs/api-endpoints.md
-[schema]: ./docs/schema.md
+React Router is a library part of React that simplifies a lot of the URL management and passing of data. Slackit uses the router to information to the three core components which allow them to work seamlessly together.
 
-## Implementation Timeline
+### Channel Component 
 
-### Phase 1: Backend setup and User Authentication (0.5 days)
+The channel component's core functionality is to indicate to the user which channel they are currently 'watching'. These channels could be public or private. The public channels are global and automatically come with every new account. The private channels allow users to invite
+anyone so long as they know their email. Users can be subscribed to many channels and many channels can have many users. They are linked together in the database through a join table called ChannelUsers. When creating a channel, one is automatically subscribed to it and an entry is made. One can also be invited to the channel which will also create an entry in the join table. The ChannelStore is responsible for executing any callbacks established from any view component. Anytime the channels update for a specific user, the Flux Architecture will be followed which either creates or fetches all the channels. Once the store retrieves the dispatch saying flux loop has started, the store will execute the callbacks which in turn will allow the components to re-render based on potentially new states. In this case, the new state would be a new channel belonging to the user. 
 
-**Objective:** Functioning rails project with Authentication
+### Chat Component
 
-- [x] Setup new Rails project with Flux architecture skeleton
-- [x] setup Webpack & Flux scaffold
-- [x] create `User` model
-- [x] user signup/signin pages
-- [x] authentication
-- [x] redirect to single page app (which will contain all chat based functionality)
+The chat component is responsible for fetching all the messages anytime the messages within a 'watched' channel has been updated. It also immediately fetches all the past messages from within a channel upon mount. It also uses the flux architecture in order to keep up to date messages without having to go to a new page. 
 
-### Phase 2: Chat (1.5 days)
 
-**Objective:** Implement real time chat within Rails/React
+### Stream Component
 
-- [x] create `Message' model
-- [x] seed the database with a small amount of test data (users, messages)
-- [x] CRUD API for messages ('MessageController')
-- [x] setup `APIUtil` to interact with the API 
-- [x] test out API interaction in the console.
+The stream component uses Pusher to pull in any new posts from any subreddits that you have been subscribed to. The component is inactive by default. The way to activate it is to set the state of the component based on the click of the Reddit alien in the header. Incoming posts can will link you to the live reddit link.
 
-### Phase 3: Channel integration with chat and users (1.5 days)
 
-**Objective:** Users can interact with global channels
+![image of notebook index](https://github.com/appacademy/sample-project-proposal/blob/master/docs/noteIndex.png)
 
-- [ ] Integrate channel id within messages model
-- [x] setup React Router
-- [x] implement Channel component, will be alongside Chat component
-  - [x] `ChannelView`
-  - [x] `ChannelIndexItem`'
-  - [ ] Channel can either be a automatically subscribed channel, a private channel between users, and a private channel between 2 people (DM)
-  - [ ] Structure the channelView to hold separate components - making up global channels, private channels, and private DMs
+Note editing is implemented using the Quill.js library, allowing for a Word-processor-like user experience.
 
-### Phase 4: Start Styling (0.5 days)
-
-**Objective:** Existing pages (signup, signin, chat page) will be minimally styled.
-
-- [x] Import Foundation library
-- [x] Add custom stylings on top of Foundation
-- [ ] Structure elements to match wireframe
-- [ ] Follow styling guide
-
-### Phase 5: Reddit API (1 day)
-
-**Objective:** Create Reddit JSON api functionality.
-
-  - [x] Setup background requests to Reddit api
-  - [ ] parse data through backend
-  - [ ] implement component alongside existing components such as channel/messages
-
-### Phase 6: Reddit posting (2 days)
-
-**Objective:** Users can post comments within web app which reflect in live reddit site
-
-  - [ ] setup OAuth
-  - [ ] create posts
-
-### Phase 7: Styling Cleanup and Seeding (1 day)
-
-**objective:** Make the site feel more cohesive and awesome.
-
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
-
-### Bonus Features (TBD)
-- [ ] More reddit integration
-- [ ] Infinite scrolling, pagination
-- [ ] User statistics/dashboard

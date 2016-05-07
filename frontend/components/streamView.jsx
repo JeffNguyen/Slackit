@@ -69,7 +69,7 @@ var StreamView = React.createClass({
     // TODO: Put 'no new posts!' if content is empty
     return (
       <div className = 'aside aside-2'>
-        STREAMING ...
+        Listening for new posts ...
          {this.state.content.map(function(content, index){
           return (
             <StreamIndexItem content={content}/>
