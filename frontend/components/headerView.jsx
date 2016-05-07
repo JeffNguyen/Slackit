@@ -32,7 +32,28 @@ var HeaderView = React.createClass({
     ClientActions.activateStream();
   },
 
-  render: function() {
+  // render: function() {
+  //   return (
+  //     <div className='chat-header'>
+  //       <div className='header-left'>
+  //         SLACKIT
+  //       </div>
+  //       <div className='header-right'>
+  //         {this.state.username}&nbsp; &nbsp; | &nbsp; &nbsp;
+  //         <button onClick={this._redditStream}>
+  //           <i className="fa fa-reddit-alien fa-lg" aria-hidden="true"></i>
+  //         </button>&nbsp; &nbsp; | &nbsp; &nbsp;
+  //         <button onClick={this._settings}>
+  //           <i className="fa fa-cog fa-lg" aria-hidden="true"></i>
+  //         </button>&nbsp; &nbsp;| &nbsp; &nbsp;
+  //         <button onClick={this._logout}>
+  //           <i className="fa fa-sign-out fa-lg" aria-hidden="true"></i>
+  //         </button>&nbsp; &nbsp;
+  //       </div>
+  //     </div>
+  //   );
+
+    render: function() {
     return (
       <div className='chat-header'>
         <div className='header-left'>
@@ -43,9 +64,6 @@ var HeaderView = React.createClass({
           <button onClick={this._redditStream}>
             <i className="fa fa-reddit-alien fa-lg" aria-hidden="true"></i>
           </button>&nbsp; &nbsp; | &nbsp; &nbsp;
-          <button onClick={this._settings}>
-            <i className="fa fa-cog fa-lg" aria-hidden="true"></i>
-          </button>&nbsp; &nbsp;| &nbsp; &nbsp;
           <button onClick={this._logout}>
             <i className="fa fa-sign-out fa-lg" aria-hidden="true"></i>
           </button>&nbsp; &nbsp;
