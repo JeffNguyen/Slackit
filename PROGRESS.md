@@ -62,3 +62,5 @@ the messages, except the last message that was added didn't have email property 
 because I didn't format it appropriately in jbuilder) - since I always call fetchAll
 after every new message, no need to do a server action on createMessage, pusher's subscription will trigger the fetchAllMessages which will always get the most up to date
 messages
+
+need to fix sometimes email doesn't pass devise validation from faker

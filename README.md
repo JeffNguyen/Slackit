@@ -1,6 +1,6 @@
 # Slackit
 
-[Slackit live][heroku] **NB:** This should be a link to your production site
+[Slackit][heroku]
 
 [heroku]: http://slack-it.herokuapp.com
 
@@ -38,7 +38,6 @@ The chat component is responsible for fetching all the messages anytime the mess
 The stream component uses Pusher to pull in any new posts from any subreddits that you have been subscribed to. The component is inactive by default. The way to activate it is to set the state of the component based on the click of the Reddit alien in the header. Incoming posts can will link you to the live reddit link.
 
 
-![image of notebook index](https://github.com/appacademy/sample-project-proposal/blob/master/docs/noteIndex.png)
+![image of chat interface](https://github.com/JeffNguyen/Slackit/docs/101.png)
 
-Note editing is implemented using the Quill.js library, allowing for a Word-processor-like user experience.
 
