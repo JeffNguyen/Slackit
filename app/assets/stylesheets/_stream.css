@@ -2,4 +2,25 @@
   width: 90%;
   padding: 10px;
   word-wrap: break-word;
+  /*color: #394d3b;*/
+  color: #4d394b;
+}
+
+.listening {
+  background: #f3f0eb;
+  /*background: #F1F9F7;*/
+  border: solid #ccc;
+  border-width: 0 1px 1px;
+  padding: 8px 0;
+  text-align: center;
+  color: #1d9d74;
+}
+
+.listening.active {
+  display: block;
+}
+ 
+.listening .fa {
+  font-size: smaller;
+  padding-bottom: 4px;
 }

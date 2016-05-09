@@ -16,7 +16,6 @@ var HeaderView = React.createClass({
   },
 
   componentDidMount: function(){
-    debugger
     if (this.state.anonymous === "true" || this.state.sign_in_count === "1"){
       Tour.start();
     }
@@ -59,7 +58,7 @@ var HeaderView = React.createClass({
           <button className='reddit-button' onClick={this._redditStream}>
             <i className="fa fa-reddit-alien fa-lg" aria-hidden="true"></i>
           </button>&nbsp; &nbsp; | &nbsp; &nbsp;
-          <button className='info-button' onClick={this.startTour}>
+          <button onClick={this.startTour}>
             <i className="fa fa-info-circle fa-lg" aria-hidden="true"></i>
           </button>&nbsp; &nbsp;| &nbsp; &nbsp;
           <button onClick={this._settings}>

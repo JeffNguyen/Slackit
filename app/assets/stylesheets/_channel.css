@@ -69,7 +69,7 @@ div[class^='channel-unselected']{
 
 /* pads the '+' icon to be level with Channel text */
 .fa {
-  padding: 5px;
+  padding-top: 4px;
 }
 
 .create-channel-button {
