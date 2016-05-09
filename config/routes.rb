@@ -27,8 +27,6 @@ Rails.application.routes.draw do
     end
   end
 
-	# root to: 'static_pages#root.html'
-
 end
 
 

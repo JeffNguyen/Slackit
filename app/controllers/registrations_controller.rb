@@ -15,15 +15,22 @@ class RegistrationsController < Devise::RegistrationsController
       ChannelUser.create!(channel_id: 3, user_id: id)
       ChannelUser.create!(channel_id: 4, user_id: id)
       ChannelUser.create!(channel_id: 5, user_id: id)
-    end
 
+      # create custom private channel
+      # subscribe
+      channel_name = Faker::App.name
+      Channel.create!(name: channel_name, public: false, message: false)
+      channel_id = Channel.find_by(name: channel_name).id
+      ChannelUser.create!(channel_id: channel_id, user_id: id)
+    end
+    
   end
 
   def sign_up_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :anonymous)
   end
 
-  # def account_update_params
-
-  # end
+  def account_update_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password, :anonymous)
+  end
 end

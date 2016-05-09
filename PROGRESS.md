@@ -40,19 +40,12 @@ Way to solve it was to actually set up react router - so since my page is a sing
 
 
 
-
-
 TODO: Hardcore a sleep timer which allows all the components to load through the flux architecture -
 based on the sleep timer, show a javascript/css spinner or something and then when the time is gone,
 remove the css timer
 
-TODO: Remove foundation and not have project break completely
-
 To pass information from child to parent - the parent needs to pass a callback and the child will
 execute the callback and send it back to the parent
-
-text http://codepen.io/Thibaut/pen/CiDkc
-
 
 REASON WHY I WAS LAGGING WHEN SCROLLING - DOUBLE RENDER
 

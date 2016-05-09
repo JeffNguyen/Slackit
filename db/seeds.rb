@@ -8,14 +8,14 @@
 
 ActiveRecord::Base.transaction do
 
-  User.create(username: 'Jeffrey Nguyen', email: 'user@email.com', password: 'password')
+  User.create(username: 'Jeffrey Nguyen', email: 'user@email.com', password: 'password', anonymous: false)
 
 
-  Channel.create!(name: 'nba', public: true, message: false)
-  Channel.create!(name: 'soccer', public: true, message: false)
-  Channel.create!(name: 'nfl', public: true, message: false)
-  Channel.create!(name: 'pics', public: true, message: false)
+  Channel.create!(name: 'AskReddit', public: true, message: false)
   Channel.create!(name: 'funny', public: true, message: false)
+  Channel.create!(name: 'politics', public: true, message: false)
+  Channel.create!(name: 'pics', public: true, message: false)
+  Channel.create!(name: 'gameofthrones', public: true, message: false)
 
   ChannelUser.create!(channel_id: 1, user_id: 1)
   ChannelUser.create!(channel_id: 2, user_id: 1)
@@ -24,11 +24,11 @@ ActiveRecord::Base.transaction do
   ChannelUser.create!(channel_id: 5, user_id: 1)
 
   5.times do |t|
-    username = Faker::Name.name
-    email = Faker::Internet.email
+    username = Faker::Internet.user_name
+    email = Faker::Internet.safe_email
     password = Faker::Internet.password
 
-    User.create!(username: username, email: email, password: password)
+    User.create!(username: username, email: email, password: password, anonymous: false)
 
     ChannelUser.create!(channel_id: 1, user_id: t+2)
     ChannelUser.create!(channel_id: 2, user_id: t+2)

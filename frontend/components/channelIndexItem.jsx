@@ -28,6 +28,10 @@ var ChannelIndexItem = React.createClass({
       identifier = 'channel-unselected';
     }
 
+    if (this.props.channel.public === false){
+      identifier += '-private';
+    }
+
     var list;
 
     var divStyle = {

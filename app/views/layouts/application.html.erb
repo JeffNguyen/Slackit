@@ -13,6 +13,7 @@
     <%= csrf_meta_tags %>
     <script src="//js.pusher.com/3.0/pusher.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shepherd/1.7.0/css/shepherd-theme-arrows.css" />
   </head>
 
   <body>
@@ -20,6 +21,7 @@
       window.current_user = {
         id: '<%= current_user.id if current_user %>',
         username: '<%= current_user.username if current_user %>',
+        anonymous: '<%= current_user.anonymous if current_user %>',
         sign_in_count: '<%= current_user.sign_in_count if current_user %>'
       }
     </script>
@@ -30,10 +32,9 @@
     <script>
       // https://github.com/plataformatec/devise/wiki/How-To:-Create-a-guest-user
       $('.guest').click(function() {
-        username = 'anon' + '<%= Faker::Number.number(5) %>';
-        email = '<%= Faker::Internet.email('Guest') %>';
-        console.log(email);
-        password = 'password';
+        var username = 'anon' + '<%= Faker::Number.number(5) %>';
+        var email = '<%= Faker::Internet.safe_email %>';
+        var password = 'password';
 
         var email_input = $('#email');
         var password_input = $('#password');
@@ -48,11 +49,9 @@
             {username: username, 
              email: email,
              password: password,
-             password_confirmation: password
+             password_confirmation: password,
+             anonymous: true
             }
-           },
-           success: function(){
-
            }
         });
 

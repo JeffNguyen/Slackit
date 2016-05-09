@@ -30,6 +30,20 @@ div[class^='channel-unselected']{
   text-align: left;
 }
 
+.channel-unselected-private {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+}
+
+.channel-selected-private {
+  background: #ed8928;
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+  border-radius: 0 100px 100px 0;
+}
+
 .channel-name {
   padding-left: 25px;
   outline: none;
@@ -55,7 +69,7 @@ div[class^='channel-unselected']{
 
 /* pads the '+' icon to be level with Channel text */
 .fa {
-  padding-top: 4px;
+  padding: 5px;
 }
 
 .create-channel-button {

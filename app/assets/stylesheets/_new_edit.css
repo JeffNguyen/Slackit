@@ -1,0 +1,17 @@
+.edit{
+  position: relative;
+  top: 40%;
+  width: 250px;
+  display: table;
+  margin: -150px auto 0 auto;
+  background: #fff;
+  border-radius: 4px;
+  border: #ed8928 solid 1px;
+}
+
+.back {
+  position:absolute;
+  top: 20px;
+  right: 30px;
+  color: #ed8928;
+}
