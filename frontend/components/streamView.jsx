@@ -70,7 +70,7 @@ var StreamView = React.createClass({
     return (
       <div className = 'aside aside-2'>
         <div className='listening'>
-          Listening for new posts <i className="fa fa-refresh fa-spin" aria-hidden="true"></i>
+          Listening for new posts &nbsp; <i className="fa fa-refresh fa-spin" aria-hidden="true"></i>
         </div>
          {this.state.content.map(function(content, index){
           return (
