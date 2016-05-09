@@ -37,10 +37,16 @@ ActiveRecord::Base.transaction do
     ChannelUser.create!(channel_id: 5, user_id: t+2)
   end
 
-  Message.create!(text: 'NBA', user_id: 1, channel_id: 1)
-  Message.create!(text: 'SOCCER', user_id: 2, channel_id: 2)
-  Message.create!(text: 'NFL', user_id: 3, channel_id: 3)
-  Message.create!(text: 'PICS', user_id: 4, channel_id: 4)
-  Message.create!(text: 'FUNNY' , user_id: 5, channel_id: 5)
+  Message.create!(text: 'Can I ask you a question?', user_id: 1, channel_id: 1)
+  Message.create!(text: 'Knock Knock', user_id: 2, channel_id: 2)
+  Message.create!(text: 'I can\'t believe Trump won the nomination', user_id: 3, channel_id: 3)
+  Message.create!(text: 'Check out the subreddit pics!', user_id: 4, channel_id: 4)
+  Message.create!(text: 'Did anyone here catch yesterday\'s episode?' , user_id: 5, channel_id: 5)
+
+  Message.create!(text: 'Yeah what is it?', user_id: 2, channel_id: 1)
+  Message.create!(text: 'Whose there', user_id: 1, channel_id: 2)
+  Message.create!(text: 'It\'s insane', user_id: 6, channel_id: 3)
+  Message.create!(text: 'So cool', user_id: 1, channel_id: 4)
+  Message.create!(text: 'Team Jon Snow' , user_id: 3, channel_id: 5)
 
 end
