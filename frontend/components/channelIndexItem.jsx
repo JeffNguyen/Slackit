@@ -40,7 +40,7 @@ var ChannelIndexItem = React.createClass({
 
     if (this.props.channel.public){
       list =  
-        <div >
+        <div className='inner-channel-container'>
           <div style= {divStyle} onClick={this._setUrl} className={identifier} >       
             <button className='channel-name'><div className='buttontext'>
               {this.props.channel.name}</div>
@@ -49,7 +49,7 @@ var ChannelIndexItem = React.createClass({
         </div>
     } else {
       list =
-        <div >
+        <div className='inner-channel-container'>
           <div style= {divStyle} onClick={this._setUrl} className={identifier}>
             <button className='channel-name'><div className='buttontext'>
               {this.props.channel.name}</div>

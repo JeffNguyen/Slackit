@@ -22,6 +22,7 @@ div[class^='channel-unselected']{
   display: inline-block;
   text-align: left;
   border-radius: 0 100px 100px 0;
+  color: white;
 }
 
 .channel-unselected {
@@ -135,3 +136,12 @@ div[class^='channel-unselected']{
   text-overflow: ellipsis;
   text-align: left;
 }​
+.inner-channel-container {
+  background-color: none;
+}
+
+.inner-channel-container:hover{
+  background: #288ced;
+  border-radius: 0 100px 100px 0;
+  color: white;
+}

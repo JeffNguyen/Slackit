@@ -13,7 +13,7 @@ ActiveRecord::Base.transaction do
 
   Channel.create!(name: 'AskReddit', public: true, message: false)
   Channel.create!(name: 'funny', public: true, message: false)
-  Channel.create!(name: 'politics', public: true, message: false)
+  Channel.create!(name: 'science', public: true, message: false)
   Channel.create!(name: 'pics', public: true, message: false)
   Channel.create!(name: 'gameofthrones', public: true, message: false)
 
@@ -39,13 +39,13 @@ ActiveRecord::Base.transaction do
 
   Message.create!(text: 'Can I ask you a question?', user_id: 1, channel_id: 1)
   Message.create!(text: 'Knock Knock', user_id: 2, channel_id: 2)
-  Message.create!(text: 'I can\'t believe Trump won the nomination', user_id: 3, channel_id: 3)
+  Message.create!(text: 'What\'s new?', user_id: 3, channel_id: 3)
   Message.create!(text: 'Check out the subreddit pics!', user_id: 4, channel_id: 4)
   Message.create!(text: 'Did anyone here catch yesterday\'s episode?' , user_id: 5, channel_id: 5)
 
   Message.create!(text: 'Yeah what is it?', user_id: 2, channel_id: 1)
   Message.create!(text: 'Whose there', user_id: 1, channel_id: 2)
-  Message.create!(text: 'It\'s insane', user_id: 6, channel_id: 3)
+  Message.create!(text: 'I love science!', user_id: 6, channel_id: 3)
   Message.create!(text: 'So cool', user_id: 1, channel_id: 4)
   Message.create!(text: 'Team Jon Snow' , user_id: 3, channel_id: 5)
 
