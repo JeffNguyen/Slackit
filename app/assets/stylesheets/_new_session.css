@@ -128,6 +128,12 @@ html, body{
   color: #2199e8;
 }
 
+.github {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+
 #error_explanation{
   text-align: center;
   color: #FF0000;

@@ -47,6 +47,10 @@ var HeaderView = React.createClass({
     Tour.start();
   },
 
+  _github: function(){
+    window.location = 'http://github.com/JeffNguyen/Slackit';
+  },
+
   render: function() {
     return (
       <div className='chat-header'>
@@ -57,6 +61,9 @@ var HeaderView = React.createClass({
           {this.state.username}&nbsp; &nbsp; | &nbsp; &nbsp;
           <button className='reddit-button' onClick={this._redditStream}>
             <i className="fa fa-reddit-alien fa-lg" aria-hidden="true"></i>
+          </button>&nbsp; &nbsp; | &nbsp; &nbsp;
+          <button onClick={this._github}>
+            <i className="fa fa-github fa-lg" aria-hidden="true"></i>
           </button>&nbsp; &nbsp; | &nbsp; &nbsp;
           <button onClick={this.startTour}>
             <i className="fa fa-info-circle fa-lg" aria-hidden="true"></i>
